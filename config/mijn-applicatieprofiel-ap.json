@@ -12,7 +12,7 @@
     "contributors-file": "stakeholders.csv",
     "contributors-column": "MijnKolom",
     "site": "site-skeleton/mijn-applicatieprofiel-ap",
-    "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-mijnThema/issues",
+    "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/issues",
     "standaardregisterurl": "https://data.vlaanderen.be/standaarden/applicatieprofiel-hulp-dienstverlening-gedetineerden/index.html"
   }
 ]

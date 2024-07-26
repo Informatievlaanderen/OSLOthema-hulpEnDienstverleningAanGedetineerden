@@ -3,7 +3,7 @@
     "name": "hdg-ap",
     "type": "ap",
     "eap": "MijnApplicatieprofiel-AP.eap",
-    "diagram": "OSLO-HDG-2",
+    "diagram": "OSLO-HDG",
     "template": "mijn-applicatieprofiel-ap.j2",
     "title": "OSLO Hulp- en dienstverlening gedetineerden",
     "publication-state": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",

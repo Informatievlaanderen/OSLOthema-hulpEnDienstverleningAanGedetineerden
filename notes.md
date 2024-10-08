@@ -20,6 +20,7 @@ Considered classes:
   - Definition: An offer to transfer some rights to an item or to provide a service — 
     for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, 
     to repair a motorcycle, or to loan a book.
+  - There is a relationship between schema:Service and schema:Offer via schema:offerCatalog.
 - https://www.wikidata.org/wiki/Q161837
   - Definition: service provided by a government to people living within its jurisdiction
   - Can we consider an "Aanbod" to be provided by the government?
@@ -45,6 +46,7 @@ Considered classes:
 - https://www.w3.org/ns/prov#Activity
   - Definition: An activity is something that occurs over a period of time and acts upon or with entities; 
     it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+  - This class is more for when an activity generates a result: she becomes a doctor (result) after graduation (activity).
 - https://schema.org/Event
   - Definition: An event happening at a certain time and location, such as a concert, lecture, or festival. 
     Ticketing information may be added via the offers property. 
@@ -58,10 +60,14 @@ Considered classes:
     - schema:previousStartDate for an event that is rescheduled. The problem is that it's just a date and not dateTime.
 - http://www.w3.org/ns/sosa/Actuation
   - Definition: An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.
+  - Actuator is a device, so I think that it doesn't work for organisations and people.
 - http://www.cidoc-crm.org/cidoc-crm/E7_Activity
   - Definition: This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented.
     This notion includes complex, composite, and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door.
   - This class is a subclass of [E5 Event](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E5).
+  - The definition reads like it aligns with the definition of prov:Activity.
+
+Decision: schema:Event aligns best with Activity in our case.
 
 ## Sessie (subclass of Activiteit)
 
@@ -69,11 +75,15 @@ Considered classes:
 
 - https://schema.org/Event
 
+Decision: model Sessie as new subclass of [Activiteit](#Activiteit).
+
 ## Sessiereeks (subclass of Activiteit)
 
 Considered classes:
 
 - https://schema.org/Event
+
+Decision: model Sessiereeks as new subclass of [Activiteit](#Activiteit).
 
 ## Doelgroep
 
@@ -82,6 +92,8 @@ Considered classes:
 - https://schema.org/Audience
   - Definition: Intended audience for an item, i.e. the group for whom the item was created.
   - The problem is that the properties of this group are stored as text.
+  - We can work around this problem by adding our own properties and ignoring the existing property.
+  - This class doesn't work if "Doelgroep" can also be used to limit who participates in an "Aanbod".
 - http://data.europa.eu/snb/model/elm/targetGroup
   - Definition: A specific target group or category for which this specification is designed.
   - Different scope.
@@ -89,7 +101,7 @@ Considered classes:
   - Definition: Groep of categorie die belang hebben bij de mobiliteitsmaatregel.
   - Different scope.
 
-Decision: create new class.
+Decision: TODO (create new class or reuse Audience)
 
 ## DoelgroepKenmerk
 
@@ -117,6 +129,16 @@ Considered classes:
     - schema:funder
     - schema:sponsor
     - schema:fundedItem --> Organisation, Person, Product, and so on.
+- http://purl.org/cerif/frapo/Funding
+  - Definition: An amount of money available to finance some project or activity.
+  - FRAPO ontology: "It can also be used to describe other types of projects, for example building projects and educational projects."
+  - Resubale properties:
+    - http://purl.org/cerif/frapo/supports
+      - Definition: An object property linking an agent to something that the agent supports by financial or other means.
+    - http://purl.org/cerif/frapo/funds (subproperty of frapo:supports)
+      - Definition: An object property that links a grant to something that it funds (i.e. that it finances or pays for), or that links an agent providing funding to something that it funds.
+
+Decision: TODO (if we use schema:Event and schema:Service then schema:Grant makes more sense)
 
 ## Financieringsbron
 
@@ -125,3 +147,5 @@ Considered classes:
 - http://purl.org/dc/terms/Agent
   - The properties we want to add can be relevant for other organisations as well regardless of the fact that
     they are involved in funding.
+
+Decision: TODO

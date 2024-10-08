@@ -137,6 +137,15 @@ Considered classes:
       - Definition: An object property linking an agent to something that the agent supports by financial or other means.
     - http://purl.org/cerif/frapo/funds (subproperty of frapo:supports)
       - Definition: An object property that links a grant to something that it funds (i.e. that it finances or pays for), or that links an agent providing funding to something that it funds.
+- http://vivoweb.org/ontology/core#Grant
+  - Doesn't look maintained.
+- https://eurocris.org/ontologies/cerif/1.3#Funding
+  - Page not found.
+- https://rains-uoa.github.io/RAInS-Ontology/v2.0/index-en.html#Funding
+  - Definition: A sao:InformationElement which records a specific piece of information detailing a funding source.
+  - The ontology has a different scope: The RAInS ontology is an ex-tension of the System Accountability Ontology (SAO) 
+    for the AI systems' domain by defining a set of concepts required to document the design and 
+    implementation stage of such systems.
 
 Decision: TODO (if we use schema:Event and schema:Service then schema:Grant makes more sense)
 

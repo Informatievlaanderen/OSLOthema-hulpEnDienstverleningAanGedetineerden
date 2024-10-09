@@ -33,45 +33,106 @@ Decision: TODO
 
 #### beleidsdomein
 
-TODO
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.
 
 #### beschrijving
+- dcterms:description
+  - This one is used for all descriptions in OSLO I've seen so far.
 
-- dcterms:description (this one is used for all descriptions in OSLO I've seen so far)
+Decision: use dcterms:description
 
 #### categorie
 - http://data.europa.eu/snb/model/elm/category
+  - Definition: A category to which this specification belongs. 
+    This property can be used instead of dc:type, if the category cannot provided via a controlled vocabulary.
+  - ❌ Different scope.
 - https://data.vlaanderen.be/ns/statistiek#categorie
+  - Definition: De categorie waarvoor de probaliteit bepaald is.
+  - ❌ Different scope.
 - https://schema.org/category
   - Definition: A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
   - schema:Service is in the domain.
   - skos:Concept is in the range because the range is schema:Thing.
+- https://www.bbc.co.uk/ontologies/creativework/category
+  - ❌ 404
+- http://www.agls.gov.au/agls/terms/category
+  - ❌ 404
+
+Decision: use schema:category
 
 #### doelgroep
-- https://schema.org/Audience
+
+- https://schema.org/audience
   - Definition: An intended audience, i.e. a group for whom something was created.
+  - Domain incl. Event and Service.
+- https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.doelgroep
+  - ❌ Domain: http://www.cidoc-crm.org/cidoc-crm/E7_Activity
+
+Decision: TODO
 
 #### infrastructuur
 
+- https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.infrastructuur
+  - ❌ "Aanbod" is not in the domain, only "Activiteit".
+- https://schema.org/location
+  - Definition: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  - ❌ Domain: Action, Event, Organisation, InteractionCounter.
+- https://www.w3.org/ns/prov#atLocation
+  - Definition: A location can be an identifiable geographic place (ISO 19112), 
+    but it can also be a non-geographic place such as a directory, row, or column. 
+    As such, there are numerous ways in which location can be expressed, 
+    such as by a coordinate, address, landmark, and so forth.
+  - Domain: prov:Activity or prov:Agent or prov:Entity or prov:InstantaneousEvent
+    - ❓ Is the domain ok here?
+  - Range: prov:Location
+    - ❓ Is the range ok here?
+
+Decision: TODO
+
 #### intake
 - Nothing in schema.org 
+- Nothing via LOV
+
+Decision: new property.
 
 #### gerealiseerdDoor
+- http://cidoc-crm.org/cidoc-crm/P14_carried_out_by
+  - Definition: This property describes the active participation of an instance of E39 Actor in an instance of E7 Activity.
+  - ❌ Domain: Activity
+  - Range: Actor
+  - From OSLO Cultuurparticipatie.
+
+Decision: TODO
 
 #### maxAantalDeelnemers
+- Nothing in schema.org
+
+Decision: TODO
 
 #### medium
 - https://schema.org/eventAttendanceMode
   - Definition: The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
-  - Domain is schema:Event and not schema:Service.
+  - ❌ Domain is only schema:Event and not schema:Service.
+
+Decision: TODO
 
 #### subcategorie
 - Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.
 
 #### taal
 - https://schema.org/inLanguage
   - Definition: The language of the content or performance or used in an action.
-  - from OSLO Cultuurparticipatie
+  - From OSLO Cultuurparticipatie
+- http://purl.org/dc/terms/language
+  - Definition: A language of the resource.
+
+Decision: TODO
 
 ## IndividueelAanbod
 
@@ -93,7 +154,9 @@ Decision: create new class.
 
 ### Properties
 
-- minAantalDeelnemers
+#### minAantalDeelnemers
+
+Decision: TODO
 
 ## Activiteit
 
@@ -116,7 +179,7 @@ Considered classes:
     - schema:previousStartDate for an event that is rescheduled. The problem is that it's just a date and not dateTime.
 - http://www.w3.org/ns/sosa/Actuation
   - Definition: An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.
-  - Actuator is a device, so I think that it doesn't work for organisations and people.
+  - ❌ Actuator is a device, so I think that it doesn't work for organisations and people.
 - http://www.cidoc-crm.org/cidoc-crm/E7_Activity
   - Definition: This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented.
     This notion includes complex, composite, and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door.
@@ -124,6 +187,10 @@ Considered classes:
   - The definition reads like it aligns with the definition of prov:Activity.
 
 Decision: schema:Event aligns best with Activity in our case.
+
+### Properties
+
+TODO
 
 ## Sessie (subclass of Activiteit)
 
@@ -133,6 +200,10 @@ Considered classes:
 
 Decision: model Sessie as new subclass of [Activiteit](#Activiteit).
 
+### Properties
+
+No own properties.
+
 ## Sessiereeks (subclass of Activiteit)
 
 Considered classes:
@@ -140,6 +211,10 @@ Considered classes:
 - https://schema.org/Event
 
 Decision: model Sessiereeks as new subclass of [Activiteit](#Activiteit).
+
+### Properties
+
+No own properties.
 
 ## Doelgroep
 
@@ -160,17 +235,29 @@ Considered classes:
 
 Decision: TODO (create new class or reuse Audience)
 
+### Properties
+
+TODO
+
 ## DoelgroepKenmerk
 
 No existing classes found.
 
 Decision: create new class.
 
+### Properties
+
+TODO
+
 ## GebruikteVTE
 
 No existing classes found.
 
 Decision: create new class.
+
+### Properties
+
+TODO
 
 ## Financiering
 
@@ -206,6 +293,10 @@ Considered classes:
 
 Decision: TODO (if we use schema:Event and schema:Service then schema:Grant makes more sense)
 
+### Properties
+
+TODO
+
 ## Financieringsbron
 
 Considered classes:
@@ -215,3 +306,7 @@ Considered classes:
     they are involved in funding.
 
 Decision: TODO
+
+### Properties
+
+TODO

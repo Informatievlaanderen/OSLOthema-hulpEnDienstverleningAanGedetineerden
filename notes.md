@@ -2,6 +2,8 @@
 
 ## Aanbod
 
+### Class
+
 Considered classes:
 
 - http://purl.org/vocab/cpsv#PublicService
@@ -27,17 +29,71 @@ Considered classes:
 
 Decision: TODO
 
+### Properties
+
+#### beleidsdomein
+
+TODO
+
+#### beschrijving
+
+- dcterms:description (this one is used for all descriptions in OSLO I've seen so far)
+
+#### categorie
+- http://data.europa.eu/snb/model/elm/category
+- https://data.vlaanderen.be/ns/statistiek#categorie
+- https://schema.org/category
+  - Definition: A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  - schema:Service is in the domain.
+  - skos:Concept is in the range because the range is schema:Thing.
+
+#### doelgroep
+- https://schema.org/Audience
+  - Definition: An intended audience, i.e. a group for whom something was created.
+
+#### infrastructuur
+
+#### intake
+- Nothing in schema.org 
+
+#### gerealiseerdDoor
+
+#### maxAantalDeelnemers
+
+#### medium
+- https://schema.org/eventAttendanceMode
+  - Definition: The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
+  - Domain is schema:Event and not schema:Service.
+
+#### subcategorie
+- Nothing in schema.org
+
+#### taal
+- https://schema.org/inLanguage
+  - Definition: The language of the content or performance or used in an action.
+  - from OSLO Cultuurparticipatie
+
 ## IndividueelAanbod
 
+### Class
 No existing classes found.
 
 Decision: create new class.
+
+### Properties
+
+Doesn't have own properties.
 
 ## GroepsAanbod
 
+### Class
 No existing classes found.
 
 Decision: create new class.
+
+### Properties
+
+- minAantalDeelnemers
 
 ## Activiteit
 
@@ -94,6 +150,7 @@ Considered classes:
   - The problem is that the properties of this group are stored as text.
   - We can work around this problem by adding our own properties and ignoring the existing property.
   - This class doesn't work if "Doelgroep" can also be used to limit who participates in an "Aanbod".
+  - It directly connects with schema:Serivce.
 - http://data.europa.eu/snb/model/elm/targetGroup
   - Definition: A specific target group or category for which this specification is designed.
   - Different scope.

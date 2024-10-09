@@ -1,5 +1,79 @@
 # Notes
 
+<!-- TOC -->
+* [Aanbod](#aanbod)
+  * [Class](#class)
+  * [Properties](#properties)
+    * [beleidsdomein](#beleidsdomein)
+    * [beschrijving](#beschrijving)
+    * [categorie](#categorie)
+    * [doelgroep](#doelgroep)
+    * [infrastructuur](#infrastructuur)
+    * [intake](#intake)
+    * [gerealiseerdDoor](#gerealiseerddoor)
+    * [maxAantalDeelnemers](#maxaantaldeelnemers)
+    * [medium](#medium)
+    * [subcategorie](#subcategorie)
+    * [taal](#taal)
+* [IndividueelAanbod](#individueelaanbod)
+  * [Class](#class-1)
+  * [Properties](#properties-1)
+* [GroepsAanbod](#groepsaanbod)
+  * [Class](#class-2)
+  * [Properties](#properties-2)
+    * [minAantalDeelnemers](#minaantaldeelnemers)
+* [Activiteit](#activiteit)
+  * [Class](#class-3)
+  * [Properties](#properties-3)
+    * [aanbod](#aanbod-1)
+    * [aantal aanmeldingen](#aantal-aanmeldingen)
+    * [aantal inschrijvingen](#aantal-inschrijvingen)
+    * [annulatie reden](#annulatie-reden)
+    * [infrastructuur](#infrastructuur-1)
+    * [naam](#naam)
+    * [status](#status)
+    * [subActiviteit](#subactiviteit)
+    * [superActiviteit](#superactiviteit)
+    * [tijdschema](#tijdschema)
+    * [vervangen door](#vervangen-door)
+    * [vervangt](#vervangt)
+* [Sessie (subclass of Activiteit)](#sessie-subclass-of-activiteit)
+  * [Class](#class-4)
+  * [Properties](#properties-4)
+* [Sessiereeks (subclass of Activiteit)](#sessiereeks-subclass-of-activiteit)
+  * [Class](#class-5)
+  * [Properties](#properties-5)
+* [Doelgroep](#doelgroep-1)
+  * [Class](#class-6)
+  * [Properties](#properties-6)
+    * [kenmerk](#kenmerk)
+* [DoelgroepKenmerk](#doelgroepkenmerk)
+  * [Class](#class-7)
+  * [Properties](#properties-7)
+    * [deel van](#deel-van)
+    * [kenmerktype](#kenmerktype)
+    * [waarde](#waarde)
+* [GebruikteVTE](#gebruiktevte)
+  * [Class](#class-8)
+  * [Properties](#properties-8)
+    * [aantal](#aantal)
+    * [vteType](#vtetype)
+* [Financiering](#financiering)
+  * [Class](#class-9)
+  * [Properties](#properties-9)
+    * [bedrag](#bedrag)
+    * [financieringstype](#financieringstype)
+    * [gefinancierd door](#gefinancierd-door)
+    * [karakter](#karakter)
+    * [uitbetalingsdatum](#uitbetalingsdatum)
+* [Financieringsbron](#financieringsbron)
+  * [Class](#class-10)
+  * [Properties](#properties-10)
+    * [beleidsdomein](#beleidsdomein-1)
+    * [financiert](#financiert)
+    * [niveau](#niveau)
+<!-- TOC -->
+
 ## Aanbod
 
 ### Class
@@ -160,6 +234,10 @@ Decision: TODO
 
 ## Activiteit
 
+### Class
+
+Note that we can subclass from multiple classes.
+
 Considered classes:
 
 - https://www.w3.org/ns/prov#Activity
@@ -190,9 +268,79 @@ Decision: schema:Event aligns best with Activity in our case.
 
 ### Properties
 
-TODO
+#### aanbod
+
+- Nothing in schema.org
+
+Decision: TODO
+
+#### aantal aanmeldingen
+
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: TODO
+
+#### aantal inschrijvingen
+
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: TODO
+
+#### annulatie reden
+Decision: TODO
+
+#### infrastructuur
+
+Decision: TODO
+
+#### naam
+
+- http://purl.org/dc/terms/title
+  - Definition: A name given to the resource.
+  - Also used by OSLO Cultuurparticipatie
+- https://schema.org/name
+
+Decision: TODO
+
+#### status
+
+Decision: TODO
+
+#### subactiviteit
+
+- https://schema.org/subEvent
+  - Definition: An Event that is part of this event. 
+    For example, a conference event includes many presentations, each of which is a subEvent of the conference.
+- https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.subactiviteit
+
+Decision: TODO
+
+#### superactiviteit
+
+- https://schema.org/superEvent
+  - Definition: An event that this event is a part of. 
+    For example, a collection of individual music performances might each have a music festival as their superEvent.
+- https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.superactiviteit
+
+Decision: TODO
+
+#### tijdschema
+
+Decision: TODO
+
+#### vervangen door
+
+Decision: TODO
+
+#### vervangt
+
+Decision: TODO
 
 ## Sessie (subclass of Activiteit)
+
+### Class
 
 Considered classes:
 
@@ -206,6 +354,8 @@ No own properties.
 
 ## Sessiereeks (subclass of Activiteit)
 
+### Class
+
 Considered classes:
 
 - https://schema.org/Event
@@ -217,6 +367,8 @@ Decision: model Sessiereeks as new subclass of [Activiteit](#Activiteit).
 No own properties.
 
 ## Doelgroep
+
+### Class
 
 Considered classes:
 
@@ -237,29 +389,53 @@ Decision: TODO (create new class or reuse Audience)
 
 ### Properties
 
-TODO
+#### kenmerk
+
+Decision: TODO
 
 ## DoelgroepKenmerk
 
+### Class
+
 No existing classes found.
 
 Decision: create new class.
 
 ### Properties
 
-TODO
+#### deel van
+
+Decision: TODO
+
+#### kenmerktype
+
+Decision: TODO
+
+#### waarde
+
+Decision: TODO
 
 ## GebruikteVTE
 
+### Class
+
 No existing classes found.
 
 Decision: create new class.
 
 ### Properties
 
-TODO
+#### aantal
+
+Decision: TODO
+
+#### vteType
+
+Decision: TODO
 
 ## Financiering
+
+### Class
 
 Considered classes:
 
@@ -295,9 +471,29 @@ Decision: TODO (if we use schema:Event and schema:Service then schema:Grant make
 
 ### Properties
 
-TODO
+#### bedrag
+
+Decision: TODO
+
+#### financieringstype
+
+Decision: TODO
+
+#### gefinancierd door
+
+Decision: TODO
+
+#### karakter
+
+Decision: TODO
+
+#### uitbetalingsdatum
+
+Decision: TODO
 
 ## Financieringsbron
+
+### Class
 
 Considered classes:
 
@@ -309,4 +505,14 @@ Decision: TODO
 
 ### Properties
 
-TODO
+#### beleidsdomein
+
+Decision: TODO
+
+#### financiert
+
+Decision: TODO
+
+#### niveau
+
+Decision: TODO

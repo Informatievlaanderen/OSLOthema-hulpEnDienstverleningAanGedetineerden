@@ -600,19 +600,25 @@ Decision: schema:funder because we use schema:MonetaryGrant.
 
 Decision: new property.
 
-#### uitbetalingsmoment start
+#### uitbetaling start
 
 - http://www.w3.org/ns/prov#startedAtTime
   - Definition: Start is when an activity is deemed to have been started by an entity, known as trigger.
   
 Decision: prov:startedAtTime
 
-#### uitbetalingsmomet einde
+#### uitbetaling einde
 
 - http://www.w3.org/ns/prov#endedAtTime
   - Definition: End is when an activity is deemed to have been ended by an entity, known as trigger
 
 Decision: prov:endedAtTime
+
+#### financiert
+
+- https://schema.org/fundedItem
+
+Decision: schema:fundedItem
 
 ## Financieringsbron
 

@@ -101,7 +101,7 @@ Considered classes:
   - Definition: service provided by a government to people living within its jurisdiction
   - Can we consider an "Aanbod" to be provided by the government?
 
-Decision: TODO
+Decision: schema:Service
 
 ### Properties
 
@@ -145,7 +145,7 @@ Decision: use schema:category
 - https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.doelgroep
   - ❌ Domain: http://www.cidoc-crm.org/cidoc-crm/E7_Activity
 
-Decision: TODO
+Decision: schema:audience
 
 #### infrastructuur
 
@@ -178,13 +178,19 @@ Decision: new property.
   - ❌ Domain: Activity
   - Range: Actor
   - From OSLO Cultuurparticipatie.
+- https://schema.org/provider
+  - Definition: The service provider, service operator, or service performer; the goods producer. 
+    Another party (a seller) may offer those services or goods on behalf of the provider. 
+    A provider may also serve as the seller. Supersedes carrier.
+  - Domain: Service
 
 Decision: TODO
 
 #### maxAantalDeelnemers
 - Nothing in schema.org
+- Nothing via LOV
 
-Decision: TODO
+Decision: new property.
 
 #### medium
 - https://schema.org/eventAttendanceMode
@@ -202,11 +208,12 @@ Decision: new property.
 #### taal
 - https://schema.org/inLanguage
   - Definition: The language of the content or performance or used in an action.
+  - ❌ Domain: Event, but not Service.
   - From OSLO Cultuurparticipatie
 - http://purl.org/dc/terms/language
   - Definition: A language of the resource.
 
-Decision: TODO
+Decision: dcterms:language
 
 ## IndividueelAanbod
 
@@ -230,7 +237,10 @@ Decision: create new class.
 
 #### minAantalDeelnemers
 
-Decision: TODO
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.
 
 ## Activiteit
 
@@ -271,22 +281,23 @@ Decision: schema:Event aligns best with Activity in our case.
 #### aanbod
 
 - Nothing in schema.org
+- Nothing in LOV
 
-Decision: TODO
+Decision: new property
 
 #### aantal aanmeldingen
 
 - Nothing in schema.org
 - Nothing via LOV
 
-Decision: TODO
+Decision: new property.
 
 #### aantal inschrijvingen
 
 - Nothing in schema.org
 - Nothing via LOV
 
-Decision: TODO
+Decision: new property.
 
 #### annulatie reden
 Decision: TODO
@@ -306,7 +317,13 @@ Decision: TODO
 
 #### status
 
-Decision: TODO
+![img.png](search-results-status.png)
+
+- The search results above show that a custom property is sometimes created/used in other APs, next to adms:status.
+- http://www.w3.org/ns/adms#status
+  - Definition: Links to the status of the Asset or Asset Distribution in the context of a particular workflow process.
+
+Decision: adms:status because of the definition and because it's also used in other APs.
 
 #### subactiviteit
 
@@ -315,7 +332,7 @@ Decision: TODO
     For example, a conference event includes many presentations, each of which is a subEvent of the conference.
 - https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.subactiviteit
 
-Decision: TODO
+Decision: schema:subEvent because the class is schema:Event.
 
 #### superactiviteit
 
@@ -324,7 +341,7 @@ Decision: TODO
     For example, a collection of individual music performances might each have a music festival as their superEvent.
 - https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.superactiviteit
 
-Decision: TODO
+Decision: schema:superEvent because the class is schema:Event.
 
 #### tijdschema
 
@@ -332,11 +349,21 @@ Decision: TODO
 
 #### vervangen door
 
-Decision: TODO
+- http://purl.org/dc/terms/isReplacedBy
+  - Definition: A related resource that supplants, displaces, or supersedes the described resource.
+  - No domain or range.
+  - Inverse of dcterms:replaces.
+
+Decision: Definition fits and dcterms is stable.
 
 #### vervangt
 
-Decision: TODO
+- http://purl.org/dc/terms/replaces
+  - Definition: A related resource that is supplanted, displaced, or superseded by the described resource.
+  - No domain or range.
+  - Inverse of dcterms:isReplacedBy
+
+Decision: Definition fits and dcterms is stable.
 
 ## Sessie (subclass of Activiteit)
 
@@ -380,18 +407,24 @@ Considered classes:
   - It directly connects with schema:Serivce.
 - http://data.europa.eu/snb/model/elm/targetGroup
   - Definition: A specific target group or category for which this specification is designed.
-  - Different scope.
+  - ❌ Different scope.
 - https://data.vlaanderen.be/ns/mobiliteit/#doelgroep
   - Definition: Groep of categorie die belang hebben bij de mobiliteitsmaatregel.
-  - Different scope.
+  - ❌ Different scope.
 
-Decision: TODO (create new class or reuse Audience)
+Decision: schema:Audience
 
 ### Properties
 
 #### kenmerk
 
-Decision: TODO
+- Nothing in schema.org
+- Nothing via LOV
+- http://purl.org/dc/terms/hasPart
+  - A related resource that is included either physically or logically in the described resource.
+  - This property is an inverse property of dcterms:isPartOf.
+
+Decision: dcterms:hasPart
 
 ## DoelgroepKenmerk
 
@@ -405,11 +438,18 @@ Decision: create new class.
 
 #### deel van
 
-Decision: TODO
+- http://purl.org/dc/terms/isPartOf
+  - Definition: A related resource in which the described resource is physically or logically included.
+  - This property is an inverse property of dcterms:hasPart.
+
+Decision: dcterms:isPartOf
 
 #### kenmerktype
 
-Decision: TODO
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
 
 #### waarde
 
@@ -427,11 +467,17 @@ Decision: create new class.
 
 #### aantal
 
+- http://data.europa.eu/snb/model/elm/count
+  - ❌ Domain: Result Category
+
 Decision: TODO
 
 #### vteType
 
-Decision: TODO
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
 
 ## Financiering
 
@@ -449,10 +495,11 @@ Considered classes:
     - schema:funder
     - schema:sponsor
     - schema:fundedItem --> Organisation, Person, Product, and so on.
+  - If we use schema:Event and schema:Service then schema:Grant makes more sense.
 - http://purl.org/cerif/frapo/Funding
   - Definition: An amount of money available to finance some project or activity.
   - FRAPO ontology: "It can also be used to describe other types of projects, for example building projects and educational projects."
-  - Resubale properties:
+  - Reusable properties:
     - http://purl.org/cerif/frapo/supports
       - Definition: An object property linking an agent to something that the agent supports by financial or other means.
     - http://purl.org/cerif/frapo/funds (subproperty of frapo:supports)
@@ -460,14 +507,14 @@ Considered classes:
 - http://vivoweb.org/ontology/core#Grant
   - Doesn't look maintained.
 - https://eurocris.org/ontologies/cerif/1.3#Funding
-  - Page not found.
+  - ❌ Page not found.
 - https://rains-uoa.github.io/RAInS-Ontology/v2.0/index-en.html#Funding
   - Definition: A sao:InformationElement which records a specific piece of information detailing a funding source.
   - The ontology has a different scope: The RAInS ontology is an ex-tension of the System Accountability Ontology (SAO) 
     for the AI systems' domain by defining a set of concepts required to document the design and 
     implementation stage of such systems.
 
-Decision: TODO (if we use schema:Event and schema:Service then schema:Grant makes more sense)
+Decision: schema:Grant
 
 ### Properties
 
@@ -477,7 +524,10 @@ Decision: TODO
 
 #### financieringstype
 
-Decision: TODO
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
 
 #### gefinancierd door
 
@@ -507,7 +557,9 @@ Decision: TODO
 
 #### beleidsdomein
 
-Decision: TODO
+See Aanbod > beleidsdomein
+
+Decision: new property.
 
 #### financiert
 
@@ -515,4 +567,7 @@ Decision: TODO
 
 #### niveau
 
-Decision: TODO
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.

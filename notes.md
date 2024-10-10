@@ -32,8 +32,8 @@
     * [infrastructuur](#infrastructuur-1)
     * [naam](#naam)
     * [status](#status)
-    * [subActiviteit](#subactiviteit)
-    * [superActiviteit](#superactiviteit)
+    * [subactiviteit](#subactiviteit)
+    * [superactiviteit](#superactiviteit)
     * [tijdschema](#tijdschema)
     * [vervangen door](#vervangen-door)
     * [vervangt](#vervangt)
@@ -65,7 +65,8 @@
     * [financieringstype](#financieringstype)
     * [gefinancierd door](#gefinancierd-door)
     * [karakter](#karakter)
-    * [uitbetalingsdatum](#uitbetalingsdatum)
+    * [uitbetalingsmoment start](#uitbetalingsmoment-start)
+    * [uitbetalingsmomet einde](#uitbetalingsmomet-einde)
 * [Financieringsbron](#financieringsbron)
   * [Class](#class-10)
   * [Properties](#properties-10)
@@ -164,7 +165,7 @@ Decision: schema:audience
   - Range: prov:Location
     - ❓ Is the range ok here?
 
-Decision: TODO
+Decision: prov:atLocation
 
 #### intake
 - Nothing in schema.org 
@@ -183,8 +184,9 @@ Decision: new property.
     Another party (a seller) may offer those services or goods on behalf of the provider. 
     A provider may also serve as the seller. Supersedes carrier.
   - Domain: Service
+  - Makes sense if we use schema:Service as class for "Aanbod".
 
-Decision: TODO
+Decision: schema:provider
 
 #### maxAantalDeelnemers
 - Nothing in schema.org
@@ -196,8 +198,9 @@ Decision: new property.
 - https://schema.org/eventAttendanceMode
   - Definition: The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
   - ❌ Domain is only schema:Event and not schema:Service.
+- Nothing in LOV.
 
-Decision: TODO
+Decision: new property.
 
 #### subcategorie
 - Nothing in schema.org
@@ -300,11 +303,33 @@ Decision: new property.
 Decision: new property.
 
 #### annulatie reden
-Decision: TODO
+
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.
 
 #### infrastructuur
 
-Decision: TODO
+- https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.infrastructuur
+  - Definition: Informatie rond de infrastructuur waarrond of waarin de Activiteit doorgaat.
+  - Domain: http://www.cidoc-crm.org/cidoc-crm/E7_Activity
+- https://schema.org/location
+  - Definition: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  - Domain: Action, Event, Organisation, InteractionCounter.
+  - Range: Place, PostalAddress, Text, VirtualLocation
+- https://www.w3.org/ns/prov#atLocation
+  - Definition: A location can be an identifiable geographic place (ISO 19112),
+    but it can also be a non-geographic place such as a directory, row, or column.
+    As such, there are numerous ways in which location can be expressed,
+    such as by a coordinate, address, landmark, and so forth.
+  - Domain: prov:Activity or prov:Agent or prov:Entity or prov:InstantaneousEvent
+    - ❓ Is the domain ok here?
+  - Range: prov:Location
+    - ❓ Is the range ok here?
+    - Very generic. More generic than schema:location.
+
+Decision: prov:atLocation
 
 #### naam
 
@@ -313,7 +338,7 @@ Decision: TODO
   - Also used by OSLO Cultuurparticipatie
 - https://schema.org/name
 
-Decision: TODO
+Decision: dcterms:title
 
 #### status
 
@@ -345,7 +370,11 @@ Decision: schema:superEvent because the class is schema:Event.
 
 #### tijdschema
 
-Decision: TODO
+- https://schema.org/eventSchedule
+  - This is the object https://data.vlaanderen.be/doc/applicatieprofiel/generiek-basis/#Tijdschema 
+    which is schema:Schedule
+  
+Decision: schema:eventSchedule
 
 #### vervangen door
 
@@ -453,7 +482,10 @@ Decision: dcterms:type
 
 #### waarde
 
-Decision: TODO
+- Nothing in schema.org
+- Nothing via LOV
+
+Decision: new property.
 
 ## GebruikteVTE
 
@@ -469,8 +501,10 @@ Decision: create new class.
 
 - http://data.europa.eu/snb/model/elm/count
   - ❌ Domain: Result Category
+- Nothing in schema.org
+- Nothing via LOV
 
-Decision: TODO
+Decision: new property.
 
 #### vteType
 
@@ -496,6 +530,9 @@ Considered classes:
     - schema:sponsor
     - schema:fundedItem --> Organisation, Person, Product, and so on.
   - If we use schema:Event and schema:Service then schema:Grant makes more sense.
+- https://schema.org/MonetaryGrant
+  - Definition: A monetary grant.
+  - Subclass of schema:Grant.
 - http://purl.org/cerif/frapo/Funding
   - Definition: An amount of money available to finance some project or activity.
   - FRAPO ontology: "It can also be used to describe other types of projects, for example building projects and educational projects."
@@ -513,14 +550,28 @@ Considered classes:
   - The ontology has a different scope: The RAInS ontology is an ex-tension of the System Accountability Ontology (SAO) 
     for the AI systems' domain by defining a set of concepts required to document the design and 
     implementation stage of such systems.
+- http://www.w3.org/ns/prov#Activity
+  - Financing can be seen as an activity.
+  - ❗️Implicitly via property prov:startedAtTime
 
-Decision: schema:Grant
+Decision: schema:MonetaryGrant (and prov:Activity)
 
 ### Properties
 
 #### bedrag
 
-Decision: TODO
+- http://qudt.org/schema/qudt/hasQuantity
+  - Too generic?
+- https://schema.org/amount
+  - Definition: The amount of money.
+  - Domain: MonetaryGrant
+  - Range: MonetaryAmount, Number
+    - ❌ So qudt:Quantity is not in range.
+- http://data.europa.eu/snb/model/elm/amount
+  - Definition: The full (sticker) price of the learning opportunity.
+    - ❌ Limited to learning opportunity.
+
+Decision: qudt:hasQuantity
 
 #### financieringstype
 
@@ -531,15 +582,37 @@ Decision: dcterms:type
 
 #### gefinancierd door
 
-Decision: TODO
+- https://schema.org/funder
+  - Definition: A person or organization that supports (sponsors) something through some kind of financial contribution.
+  - Domain: MonetaryGrant
+  - Range: Organization, Person
+- https://purl.org/cerif/frapo/isFundedBy
+  - Definition: An object property linking something to the funding that funds it (i.e. that finances or pays for it), 
+    or to the funding agency providing that funding.
+  - No domain or range.
+
+Decision: schema:funder because we use schema:MonetaryGrant.
 
 #### karakter
 
-Decision: TODO
+- Nothing in schema.org
+- Nothing via LOV
 
-#### uitbetalingsdatum
+Decision: new property.
 
-Decision: TODO
+#### uitbetalingsmoment start
+
+- http://www.w3.org/ns/prov#startedAtTime
+  - Definition: Start is when an activity is deemed to have been started by an entity, known as trigger.
+  
+Decision: prov:startedAtTime
+
+#### uitbetalingsmomet einde
+
+- http://www.w3.org/ns/prov#endedAtTime
+  - Definition: End is when an activity is deemed to have been ended by an entity, known as trigger
+
+Decision: prov:endedAtTime
 
 ## Financieringsbron
 
@@ -551,7 +624,7 @@ Considered classes:
   - The properties we want to add can be relevant for other organisations as well regardless of the fact that
     they are involved in funding.
 
-Decision: TODO
+Decision: dcterms:Agent
 
 ### Properties
 
@@ -563,7 +636,14 @@ Decision: new property.
 
 #### financiert
 
-Decision: TODO
+- http://purl.org/cerif/frapo/funds
+  - Definition: An object property that links a grant to something that it funds (i.e. that it finances or pays for), 
+    or that links an agent providing funding to something that it funds.
+  - No domain or range.
+- Nothing in schema.org
+  - schema:funder doesn't have an inverse property.
+
+Decision: frapo:funds
 
 #### niveau
 

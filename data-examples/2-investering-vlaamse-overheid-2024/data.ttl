@@ -1,0 +1,56 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+
+:DeRodeAntraciet a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
+  <https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "De Rode Antraciet".
+
+:Arktos a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
+	<https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "Arktos".
+
+:VlaamseOverheidSport a dcterms:Agent;
+  hdg:beleidsdomein :Sport;
+  hdg:beleisniveau :Vlaams.
+
+:VlaamseOverheidWelzijn a dcterms:Agent;
+  hdg:beleidsdomein :Welzijn;
+  hdg:beleisniveau :Vlaams.
+
+:FinancieringDeRodeAntraciet a schema:MonetaryGrant;
+  qudt:hasQuantity [
+    qudt:hasUnit [
+      # EUR
+    ];
+    qudt:value "1200000"
+  ];
+  dcterms:type :Subsidie;
+  hdg:karakter :Structureel;
+  prov:startedAtTime "2024-01-25";
+  prov:endedAtTime "2024-01-25";
+  schema:Funder :VlaamseOverheidSport;
+  schema:fundedItem :DeRodeAntraciet.
+
+:FinancieringArktos a schema:MonetaryGrant;
+  qudt:hasQuantity [
+    qudt:hasUnit [
+      # EUR
+    ];
+    qudt:value "450000"
+  ];
+  dcterms:type :Subsidie;
+  hdg:karakter :Eenmalig;
+  prov:startedAtTime "2024-02-15";
+  prov:endedAtTime "2024-02-15";
+  schema:Funder :VlaamseOverheidWelzijn;
+  schema:fundedItem :Arktos.
+
+:Sport a skos:Concept.
+:Welzijn a skos:Concept.
+:Vlaams a skos:Concept.
+:Subsidie a skos:Concept.
+:Structureel a skos:Concept.
+:Eenmalig a skos:Concept.

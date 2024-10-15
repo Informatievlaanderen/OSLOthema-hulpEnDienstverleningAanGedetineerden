@@ -1,0 +1,32 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+:CvoAntwerpen a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
+  <https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "CVO Antwerpen".
+
+:TaallesNederlandsB1 a hdg:GroepsAanbod;
+  hdg:beleidsdomein :Onderwijs;
+  hdg:subcategorie :Nederlands;
+  schema:category :Taal;
+  dcterms:title "Taalles Nederlands niveau B1";
+  schema:provider :CvoAntwerpen;
+  prov:atLocation :GevangenisAntwerpen.
+
+:50plus a hdg:Audience;
+  dcterms:hasPart :Kenmerk50plus.
+
+:Kenmerk50plus a hdg:DoelgroepKenmerk;
+  hdg:DoelgroepKenmerk.waarde "50+";
+  dcterms:type :Leeftijd.
+
+:GevangenisAntwerpen a hdg:GevangenisVestiging;
+  <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen".
+
+:Onderwijs a skos:Concept.
+:Nederlands a skos:Concept.
+:Taal a skos:Concept.
+:Leeftijd a skos:Concept.

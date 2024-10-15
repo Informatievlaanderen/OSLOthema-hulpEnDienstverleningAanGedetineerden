@@ -1,0 +1,45 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
+
+:TaallesNederlandsB1 a hdg:GroepsAanbod;
+  hdg:beleidsdomein :Onderwijs;
+  hdg:subcategorie :Nederlands;
+  schema:category :Taal;
+  dcterms:title "Taalles Nederlands niveau B1";
+  schema:provider :CvoAntwerpen;
+  prov:atLocation :GevangenisAntwerpen;
+  hdg:activiteit :SessieReeks;
+  schema:provider :Realisatie.
+
+:GevangenisAntwerpen a hdg:GevangenisVestiging;
+  <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen".
+
+:SessieReeks a hdg:Sessiereeks;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-03-12";
+    schema:endDate: "2024-05-31"
+  ].
+
+:Realisatie a cp:Realisatie;
+   cp:Realisatie.gebruiktObject :FatikkenVTE, :VrijwilligersVTE.
+
+:FatikkenVTE a hdg:GebruikteVTE;
+  hdg:GebruikteVTE.aantal "0.5";
+  dcterms:type :Fatikken.
+
+:VrijwilligersVTE a hdg:GebruikteVTE;
+  hdg:GebruikteVTE.aantal "1";
+  dcterms:type :Vrijwilligers.
+
+:Onderwijs a skos:Concept.
+:Nederlands a skos:Concept.
+:Taal a skos:Concept.
+:Fatikken a skos:Concept.
+:Vrijwilligers a skos:Concept.

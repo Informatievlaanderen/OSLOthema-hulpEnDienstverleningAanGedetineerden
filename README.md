@@ -5,6 +5,8 @@
 - Use [TagsAndNotes.xlsm](https://github.com/Informatievlaanderen/OSLO-allerleiTooltjes/tree/master/EA-Excel/TagsAndNotes) 
   to edit tags in Excel. The files `*.xlsm` are included in the repo as git-ignored.
 
+- Find notes about the decisions regarding classes and properties [here](notes.md).
+- Find data examples with object diagrams and Turtle files in the folder `data-examples`.
 
 ## Administrative information
 

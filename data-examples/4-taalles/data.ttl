@@ -1,0 +1,68 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+:TaallesNederlandsB1 a hdg:GroepsAanbod;
+  hdg:beleidsdomein :Onderwijs;
+  hdg:subcategorie :Nederlands;
+  schema:category :Taal;
+  dcterms:title "Taalles Nederlands niveau B1";
+  hdg:activiteit :Voorjaar, :Najaar.
+
+:Voorjaar a hdg:Sessiereeks;
+  dcterms:title "Voorjaar 2024";
+  schema:subEvent :Les1v, :Les2v, :Les3v.
+
+:Najaar a hdg:Sessiereeks;
+  dcterms:title "Najaar 2024";
+  schema:subEvent :Les1n, :Les2n, :Les3n.
+
+:Les1v a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-01-10";
+    schema:endDate: "2024-01-10"
+  ].
+
+:Les2v a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-01-17";
+    schema:endDate: "2024-01-17"
+  ].
+
+:Les3v a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-01-24";
+    schema:endDate: "2024-01-24"
+  ].
+
+:Les1n a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-09-03";
+    schema:endDate: "2024-09-03"
+  ].
+
+:Les2n a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-09-10";
+    schema:endDate: "2024-09-10"
+  ].
+
+:Les3n a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-09-17";
+    schema:endDate: "2024-09-17"
+  ].
+
+
+:Onderwijs a skos:Concept.
+:Nederlands a skos:Concept.
+:Taal a skos:Concept.

@@ -1,0 +1,75 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+:Voetbal a hdg:GroepsAanbod;
+  hdg:beleidsdomein :SportEnCultuur;
+  hdg:subcategorie :Balsporten;
+  schema:category :Sport;
+  dcterms:title "Voetbal";
+  hdg:activiteit :Trainingen, :Wedstrijden.
+
+:Trainingen a hdg:Sessiereeks;
+  dcterms:title "Trainingen";
+  schema:subEvent :training1, :training2, :training2b, :training3.
+
+:Wedstrijden a hdg:Sessiereeks;
+  dcterms:title "Wedstrijden";
+  schema:subEvent :wedstrijd1, :wedstrijd2.
+
+:training1 a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-08";
+    schema:endDate: "2024-10-08"
+  ].
+
+:training2 a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-15";
+    schema:endDate: "2024-10-15"
+  ];
+  adms:status :Cancelled;
+  hdg:Activiteit.annulatieReden :CoachSick;
+  dcterms:isReplacedBy :training2b.
+
+:training2b a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-16";
+    schema:endDate: "2024-10-16"
+  ];
+  dcterms:replaces :training2.
+
+:training3 a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-22";
+    schema:endDate: "2024-10-22"
+  ].
+
+:wedstrijd1 a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-19";
+    schema:endDate: "2024-10-19"
+  ].
+
+:wedstrijd2 a hdg:Sessie;
+  schema:eventSchedule [
+    a schema:Schedule;
+    schema:startDate: "2024-10-26";
+    schema:endDate: "2024-10-26"
+  ].
+
+
+:SportEnCultuur a skos:Concept.
+:Balsporten a skos:Concept.
+:Sport a skos:Concept.
+:Cancelled a skos:Concept.
+:CoachSick a skos:Concept.

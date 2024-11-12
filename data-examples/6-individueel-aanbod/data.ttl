@@ -1,0 +1,26 @@
+@prefix cj: <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <https://www.w3.org/ns/prov#> .
+@prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
+
+:GevangenisAntwerpen a hdg:GevangenisVestiging;
+  cj:Infrastructuur.naam "Gevangenis Antwerpen".
+
+:CCG a cp:Organisator;
+  cp:Realisator.naam "Centra Geestelijke Gezondsheidszorg";
+  cp:Realisator.realiseert :BehandelingVanDepressie, :Verslavingszorg.
+
+:BehandelingVanDepressie a hdg:IndividueelAanbod;
+  dcterms:title "Behandeling van depressie";
+  hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
+  prov:atLocation :GevangenisAntwerpen.
+
+:Verslavingszorg a hdg:IndividueelAanbod;
+  dcterms:title "Verslavingszorg";
+  hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
+  prov:atLocation :GevangenisAntwerpen.
+
+:WelzijnVolksgezondheidGezin a skos:Concept.

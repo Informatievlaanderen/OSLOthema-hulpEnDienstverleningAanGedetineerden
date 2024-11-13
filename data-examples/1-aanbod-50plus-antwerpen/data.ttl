@@ -5,8 +5,8 @@
 @prefix schema: <https://schema.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-:CvoAntwerpen a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
-  <https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "CVO Antwerpen".
+:CvoAntwerpen a hdg:Organisator;
+  dcterms:title "CVO Antwerpen".
 
 :TaallesNederlandsB1 a hdg:GroepsAanbod;
   hdg:beleidsdomein :Onderwijs;

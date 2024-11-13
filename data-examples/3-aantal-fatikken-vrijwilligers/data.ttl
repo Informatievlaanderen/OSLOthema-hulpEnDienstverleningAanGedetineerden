@@ -27,15 +27,15 @@
     schema:endDate: "2024-05-31"
   ].
 
-:Realisatie a cp:Realisatie;
-   cp:Realisatie.gebruiktObject :FatikkenVTE, :VrijwilligersVTE.
+:Realisatie a prov:Activity;
+   prov:qualifiedUsage :FatikkenVTE, :VrijwilligersVTE.
 
-:FatikkenVTE a hdg:GebruikteVTE;
-  hdg:GebruikteVTE.aantal "0.5";
+:FatikkenVTE a hdg:VTEGebruik;
+  hdg:VTEGebruik.aantal "0.5";
   dcterms:type :Fatikken.
 
-:VrijwilligersVTE a hdg:GebruikteVTE;
-  hdg:GebruikteVTE.aantal "1";
+:VrijwilligersVTE a hdg:VTEGebruik;
+  hdg:VTEGebruik.aantal "1";
   dcterms:type :Vrijwilligers.
 
 :Onderwijs a skos:Concept.

@@ -6,11 +6,11 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 
-:DeRodeAntraciet a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
-  <https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "De Rode Antraciet".
+:DeRodeAntraciet a hdg:Organisator;
+  dcterms:title "De Rode Antraciet".
 
-:Arktos a <https://data.vlaanderen.be/ns/cultuurparticipatie#Organisator>;
-	<https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam> "Arktos".
+:Arktos a hdg:Organisator;
+	dcterms:title "Arktos".
 
 :VlaamseOverheidSport a dcterms:Agent;
   hdg:beleidsdomein :Sport;

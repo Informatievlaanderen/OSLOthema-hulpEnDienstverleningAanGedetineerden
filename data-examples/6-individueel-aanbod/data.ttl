@@ -9,18 +9,20 @@
 :GevangenisAntwerpen a hdg:GevangenisVestiging;
   cj:Infrastructuur.naam "Gevangenis Antwerpen".
 
-:CCG a cp:Organisator;
+:CGG a cp:Organisator;
   cp:Realisator.naam "Centra Geestelijke Gezondsheidszorg";
-  cp:Realisator.realiseert :BehandelingVanDepressie, :Verslavingszorg.
+  cp:Realisator.realiseert :BehandelingVoorDepressieveGevoelens.
 
-:BehandelingVanDepressie a hdg:IndividueelAanbod;
-  dcterms:title "Behandeling van depressie";
+:BehandelingVoorDepressieveGevoelens a hdg:Activiteittype;
+  dcterms:title "Behandeling voor depressieve gevoelens";
   hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
-  prov:atLocation :GevangenisAntwerpen.
-
-:Verslavingszorg a hdg:IndividueelAanbod;
-  dcterms:title "Verslavingszorg";
-  hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
-  prov:atLocation :GevangenisAntwerpen.
+  hdg:instantiemethode :AdHoc;
+  prov:atLocation :GevangenisAntwerpen;
+  cp:Activiteit.subactiviteit [a hdg:Sessiereeks], [a hdg:Sessiereeks];
+  hdg:Activiteit.deelname [
+		hdg:maxAantalDeelnemers 5;
+		hdg:maxAantalDeelnemersPerInstantie 1;
+		hdg:minAantalDeelnemersPerInstantie 1
+  ].
 
 :WelzijnVolksgezondheidGezin a skos:Concept.

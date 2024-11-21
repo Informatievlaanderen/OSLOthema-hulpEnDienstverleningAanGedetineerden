@@ -1,0 +1,48 @@
+@prefix : <http://example.com#> .
+@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+:GevangenisAntwerpen a hdg:GevangenisVestiging;
+  <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen".
+
+:Populatie a hdg:Populatie;
+  hdg:Populatie.kenmerk :Geslacht, :Leeftijd.
+
+# Geslacht
+:Geslacht a hdg:Kenmerk;
+  hdg:Kenmerk.waarde :Man, :Vrouw.
+
+:Man a hdg:EnkeleWaarde;
+  hdg:kenmerkwaarde "Man";
+  hdg:Enkelewaarde.waarde 30.
+
+:Vrouw a hdg:EnkeleWaarde;
+  hdg:kenmerkwaarde "Vrouw";
+  hdg:Enkelewaarde.waarde 10.
+
+# Leeftijd
+:Leeftijd a hdg:Kenmerk;
+  hdg:Kenmerk.waarde :18-25, :26-40, :41-50, :50plus.
+
+:18-25 a hdg:Fractiewaarde;
+  hdg:ondergrens 18;
+  hdg:bovengrens 25;
+  hdg:Fractiewaarde.waarde 10.
+
+:26-40 a hdg:Fractiewaarde;
+  hdg:ondergrens 26;
+  hdg:bovengrens 40;
+  hdg:Fractiewaarde.waarde 15.
+
+:41-50 a hdg:Fractiewaarde;
+  hdg:ondergrens 41;
+  hdg:bovengrens 50;
+  hdg:Fractiewaarde.waarde 5.
+
+:50plus a hdg:Fractiewaarde;
+  hdg:ondergrens 51;
+  hdg:Fractiewaarde.waarde 10.

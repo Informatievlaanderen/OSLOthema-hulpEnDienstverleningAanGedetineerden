@@ -6,11 +6,11 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie/#> .
 @prefix org: <http://www.w3.org/ns/org#> .
-@prefix categorie: <https://example.com/categorieType/> .
+@prefix categorie: <https://example.com/CategorieType/> .
 @prefix cidoc-crm: <http://cidoc-crm.org/cidoc-crm/> .
-@prefix beleidsdomein: <https://example.com/BeleidsDomeinType/> .
+@prefix beleidsdomein: <https://example.com/BeleidsdomeinType/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix kenmerk: <https://example.com/DoelgroepKenmerkType/> .
+@prefix kenmerk: <https://example.com/KenmerkType/> .
 
 :CvoAntwerpen a cp:Organisator, org:Organisation;
   skos:prefLabel "CVO Antwerpen"@nl.

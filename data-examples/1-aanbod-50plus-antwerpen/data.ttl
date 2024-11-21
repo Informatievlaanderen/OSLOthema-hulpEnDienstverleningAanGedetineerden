@@ -4,29 +4,36 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie/#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix categorie: <https://example.com/categorieType/> .
+@prefix cidoc-crm: <http://cidoc-crm.org/cidoc-crm/> .
+@prefix beleidsdomein: <https://example.com/BeleidsDomeinType/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kenmerk: <https://example.com/DoelgroepKenmerkType/> .
 
-:CvoAntwerpen a hdg:Organisator;
-  dcterms:title "CVO Antwerpen".
+:CvoAntwerpen a cp:Organisator, ;
+  skos:prefLabel "CVO Antwerpen"@nl.
 
-:TaallesNederlandsB1 a hdg:GroepsAanbod;
-  hdg:beleidsdomein :Onderwijs;
-  hdg:subcategorie :Nederlands;
-  schema:category :Taal;
-  dcterms:title "Taalles Nederlands niveau B1";
-  schema:provider :CvoAntwerpen;
+:TaallesNederlandsB1 a hdg:Activiteittype;
+  hdg:beleidsdomein beleidsdomein:Onderwijs;
+  hdg:category categorie:Taal, categorie:Nederlands;
+  dcterms:title "Taalles Nederlands niveau B1"@nl;
+  cidoc-crm:P14_carried_out_by :CvoAntwerpen;
   prov:atLocation :GevangenisAntwerpen.
+  schema:audience :50plus.
 
-:50plus a hdg:Audience;
-  dcterms:hasPart :Kenmerk50plus.
+:50plus a schema:Audience;
+  hdg:Doelgroep.kenmerk :Kenmerk50plus.
 
-:Kenmerk50plus a hdg:DoelgroepKenmerk;
-  hdg:DoelgroepKenmerk.waarde "50+";
-  dcterms:type :Leeftijd.
+:Kenmerk50plus a hdg:Kenmerk;
+  hdg:Kenmerk.waarde "50+"^^xsd:string;
+  dcterms:type kenmerk:Leeftijd.
 
 :GevangenisAntwerpen a hdg:GevangenisVestiging;
-  <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen".
+  <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen"@nl.
 
-:Onderwijs a skos:Concept.
-:Nederlands a skos:Concept.
-:Taal a skos:Concept.
-:Leeftijd a skos:Concept.
+beleidsdomein:Onderwijs a skos:Concept.
+categorie:Nederlands a skos:Concept.
+categorie:Taal a skos:Concept.
+kenmerk:Leeftijd a skos:Concept.

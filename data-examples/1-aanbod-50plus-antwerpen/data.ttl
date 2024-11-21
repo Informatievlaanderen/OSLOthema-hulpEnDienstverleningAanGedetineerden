@@ -12,7 +12,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix kenmerk: <https://example.com/DoelgroepKenmerkType/> .
 
-:CvoAntwerpen a cp:Organisator, ;
+:CvoAntwerpen a cp:Organisator, org:Organisation;
   skos:prefLabel "CVO Antwerpen"@nl.
 
 :TaallesNederlandsB1 a hdg:Activiteittype;
@@ -20,7 +20,7 @@
   hdg:category categorie:Taal, categorie:Nederlands;
   dcterms:title "Taalles Nederlands niveau B1"@nl;
   cidoc-crm:P14_carried_out_by :CvoAntwerpen;
-  prov:atLocation :GevangenisAntwerpen.
+  prov:atLocation :GevangenisAntwerpen;
   schema:audience :50plus.
 
 :50plus a schema:Audience;

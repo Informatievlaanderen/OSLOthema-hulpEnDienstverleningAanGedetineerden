@@ -7,10 +7,9 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
 
-:TaallesNederlandsB1 a hdg:GroepsAanbod;
+:TaallesNederlandsB1 a hdg:Activiteittype;
   hdg:beleidsdomein :Onderwijs;
-  hdg:subcategorie :Nederlands;
-  schema:category :Taal;
+  hdg:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";
   schema:provider :CvoAntwerpen;
   prov:atLocation :GevangenisAntwerpen;
@@ -27,15 +26,15 @@
     schema:endDate: "2024-05-31"
   ].
 
-:Realisatie a prov:Activity;
+:Realisatie a cp:Realisatie;
    prov:qualifiedUsage :FatikkenVTE, :VrijwilligersVTE.
 
 :FatikkenVTE a hdg:VTEGebruik;
-  hdg:VTEGebruik.aantal "0.5";
+  hdg:VTEGebruik.aantalVTE "0.5";
   dcterms:type :Fatikken.
 
 :VrijwilligersVTE a hdg:VTEGebruik;
-  hdg:VTEGebruik.aantal "1";
+  hdg:VTEGebruik.aantalVTE "1";
   dcterms:type :Vrijwilligers.
 
 :Onderwijs a skos:Concept.

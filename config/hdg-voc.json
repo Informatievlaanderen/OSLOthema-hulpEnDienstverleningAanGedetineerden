@@ -2,10 +2,10 @@
   {
     "name": "hdg-voc",
     "type": "voc",
-    "eap": "MijnApplicatieprofiel-AP.eap",
+    "eap": "OSLO-Hulp-en-Dienstverlening-aan-Gedetineerden.eap",
     "diagram": "OSLO-HDG",
-    "template": "mijn-vocabularium-voc.j2",
-    "title": "OSLO Hulp- en dienstverlening gedetineerden",
+    "template": "hdg-voc.j2",
+    "title": "OSLO Hulp- en Dienstverlening aan Gedetineerden",
     "publication-state": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
     "publication-date": "2024-11-13",
     "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",

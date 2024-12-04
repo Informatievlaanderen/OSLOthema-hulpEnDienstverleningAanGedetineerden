@@ -7,13 +7,13 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
 
-:TaallesNederlandsB1 a hdg:Activiteittype;
+:TaallesNederlandsB1 a hdg:Groepsaanbod;
   hdg:beleidsdomein :Onderwijs;
   hdg:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";
   schema:provider :CvoAntwerpen;
   prov:atLocation :GevangenisAntwerpen;
-  hdg:activiteit :SessieReeks;
+  cp:subactiviteit :SessieReeks;
   schema:provider :Realisatie.
 
 :GevangenisAntwerpen a hdg:GevangenisVestiging;

@@ -6,7 +6,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 
-:Voetbal a hdg:GroepsAanbod;
+:Voetbal a hdg:Groepsaanbod;
   hdg:beleidsdomein :SportEnCultuur;
   hdg:subcategorie :Balsporten;
   schema:category :Sport;

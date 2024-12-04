@@ -13,16 +13,18 @@
   cp:Realisator.naam "Centra Geestelijke Gezondsheidszorg";
   cp:Realisator.realiseert :BehandelingVoorDepressieveGevoelens.
 
-:BehandelingVoorDepressieveGevoelens a hdg:Activiteittype;
+:BehandelingVoorDepressieveGevoelens a hdg:IndividueelAanbod;
   dcterms:title "Behandeling voor depressieve gevoelens";
   hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
   hdg:instantiemethode :AdHoc;
   prov:atLocation :GevangenisAntwerpen;
-  cp:Activiteit.subactiviteit [a hdg:Sessiereeks], [a hdg:Sessiereeks];
-  hdg:Activiteit.deelname [
-		hdg:maxAantalDeelnemers 5;
-		hdg:maxAantalDeelnemersPerInstantie 1;
-		hdg:minAantalDeelnemersPerInstantie 1
-  ].
+  cp:Activiteit.subactiviteit [
+    a hdg:Sessiereeks;
+    hdg:maxAantalDeelnemers 1
+  ], [
+    a hdg:Sessiereeks;
+    hdg:maxAantalDeelnemers 1
+  ];
+  hdg:maxAantalDeelnemers 5.
 
 :WelzijnVolksgezondheidGezin a skos:Concept.

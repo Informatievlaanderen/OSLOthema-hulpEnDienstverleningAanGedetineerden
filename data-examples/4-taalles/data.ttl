@@ -5,7 +5,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-:TaallesNederlandsB1 a hdg:GroepsAanbod;
+:TaallesNederlandsB1 a hdg:Groepsaanbod;
   hdg:beleidsdomein :Onderwijs;
   hdg:subcategorie :Nederlands;
   schema:category :Taal;

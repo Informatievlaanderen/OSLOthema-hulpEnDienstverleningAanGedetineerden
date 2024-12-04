@@ -13,7 +13,7 @@
   prov:influenced :Tekenen;
   prov:qualifiedUsage :VrijwilligersTekenen, :FatikkenTekenen.
 
-:Tekenen a hdg:GroepsAanbod;
+:Tekenen a hdg:Groepsaanbod;
   dcterms:title "Tekenen".
 
 :VrijwilligersTekenen a hdg:VTEGebruik;
@@ -24,10 +24,10 @@
   dcterms:type :Fatikken;
   hdg:VTEGebruik.aantal 0.5.
 
-:Fitness a hdg:GroepsAanbod;
+:Fitness a hdg:Groepsaanbod;
   dcterms:title "Fitness".
 
-:RealisatieFitness a prov:Activity;
+:RealisatieFitness a cp:Realisatie;
   prov:influenced :Fitness;
   prov:qualifiedUsage :FatikkenFitness.
 
@@ -35,7 +35,7 @@
   dcterms:type :Fatikken;
   hdg:VTEGebruik.aantal 1.
 
-:RealisatieAntwerpen a prov:Activity;
+:RealisatieAntwerpen a cp:Realisatie;
   prov:atLocation :GevangenisAntwerpen;
   prov:qualifiedUsage :OrganiserendpersoneelAntwerpen.
 

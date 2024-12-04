@@ -15,9 +15,9 @@
 :CvoAntwerpen a cp:Organisator, org:Organisation;
   skos:prefLabel "CVO Antwerpen"@nl.
 
-:TaallesNederlandsB1 a hdg:Activiteittype;
+:TaallesNederlandsB1 a hdg:Groepsaanbod;
   hdg:beleidsdomein beleidsdomein:Onderwijs;
-  hdg:category categorie:Taal, categorie:Nederlands;
+  hdg:categorie categorie:Taal, categorie:Nederlands;
   dcterms:title "Taalles Nederlands niveau B1"@nl;
   cidoc-crm:P14_carried_out_by :CvoAntwerpen;
   prov:atLocation :GevangenisAntwerpen;

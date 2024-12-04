@@ -18,13 +18,6 @@
   hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
   hdg:instantiemethode :AdHoc;
   prov:atLocation :GevangenisAntwerpen;
-  cp:Activiteit.subactiviteit [
-    a hdg:Sessiereeks;
-    hdg:maxAantalDeelnemers 1
-  ], [
-    a hdg:Sessiereeks;
-    hdg:maxAantalDeelnemers 1
-  ];
   hdg:maxAantalDeelnemers 5.
 
 :WelzijnVolksgezondheidGezin a skos:Concept.

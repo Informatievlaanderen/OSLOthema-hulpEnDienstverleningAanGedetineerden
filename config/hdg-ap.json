@@ -3,7 +3,7 @@
     "name": "hdg-ap",
     "type": "ap",
     "eap": "OSLO-Hulp-en-Dienstverlening-aan-Gedetineerden.eap",
-    "diagram": "OSLO-HDG",
+    "diagram": "OSLO-HDG-AP",
     "template": "hdg-ap.j2",
     "title": "OSLO Hulp- en Dienstverlening aan Gedetineerden",
     "publication-state": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",

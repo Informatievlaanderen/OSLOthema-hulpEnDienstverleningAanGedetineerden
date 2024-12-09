@@ -91,25 +91,42 @@ Considered classes:
   - If we use it, I think that we should subclass it instead of saying that "Aanbod" is of the class PublicService.
 - https://schema.org/Service
   - Definition: A service provided by an organization, e.g. delivery service, print services, etc.
+  - ❌ The definition refers to the class that it describes.
   - Reusable properties:
     - schema:audience for "Doelgroep"
 - https://schema.org/Offer
   - Definition: An offer to transfer some rights to an item or to provide a service — 
     for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, 
     to repair a motorcycle, or to loan a book.
+  - ❌ The definition refers to the class that it describes.
   - There is a relationship between schema:Service and schema:Offer via schema:offerCatalog.
 - https://www.wikidata.org/wiki/Q161837
   - Definition: service provided by a government to people living within its jurisdiction
   - Can we consider an "Aanbod" to be provided by the government?
 
-Decision: schema:Service
+Decision: new class.
 
 ### Properties
+
+#### aantalAanmeldingen
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### activiteit
+
+We see Aanbod as a subclass of CIDOC-CRM:Activity so we consider instances of Activiteit as subactivities of Aanbod.
+
+Decision: use https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.subactiviteit
 
 #### beleidsdomein
 
 - Nothing in schema.org
 - Nothing via LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
 
@@ -118,6 +135,12 @@ Decision: new property.
   - This one is used for all descriptions in OSLO I've seen so far.
 
 Decision: use dcterms:description
+
+#### beïnvloedDoor
+
+Realisatie is a subclass of prov:Activity, so we use http://www.w3.org/ns/prov#wasInfluencedBy.
+
+Decision: http://www.w3.org/ns/prov#wasInfluencedBy
 
 #### categorie
 - http://data.europa.eu/snb/model/elm/category
@@ -129,6 +152,7 @@ Decision: use dcterms:description
   - ❌ Different scope.
 - https://schema.org/category
   - Definition: A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  - ❌ The definition refers to the class that it describes.
   - schema:Service is in the domain.
   - skos:Concept is in the range because the range is schema:Thing.
 - https://www.bbc.co.uk/ontologies/creativework/category
@@ -136,7 +160,7 @@ Decision: use dcterms:description
 - http://www.agls.gov.au/agls/terms/category
   - ❌ 404
 
-Decision: use schema:category
+Decision: new property.
 
 #### doelgroep
 
@@ -147,6 +171,22 @@ Decision: use schema:category
   - ❌ Domain: http://www.cidoc-crm.org/cidoc-crm/E7_Activity
 
 Decision: schema:audience
+
+#### gerealiseerdDoor
+- http://cidoc-crm.org/cidoc-crm/P14_carried_out_by
+  - Definition: This property describes the active participation of an instance of E39 Actor in an instance of E7 Activity.
+  - Domain: Activity
+  - Range: Actor
+  - From OSLO Cultuurparticipatie.
+- https://schema.org/provider
+  - Definition: The service provider, service operator, or service performer; the goods producer.
+    Another party (a seller) may offer those services or goods on behalf of the provider.
+    A provider may also serve as the seller. Supersedes carrier.
+  - ❌ The definition is too vague.
+  - Domain: Service
+  - Makes sense if we use schema:Service as class for "Aanbod".
+
+Decision: http://cidoc-crm.org/cidoc-crm/P14_carried_out_by
 
 #### infrastructuur
 
@@ -170,27 +210,14 @@ Decision: prov:atLocation
 #### intake
 - Nothing in schema.org 
 - Nothing via LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
-
-#### gerealiseerdDoor
-- http://cidoc-crm.org/cidoc-crm/P14_carried_out_by
-  - Definition: This property describes the active participation of an instance of E39 Actor in an instance of E7 Activity.
-  - ❌ Domain: Activity
-  - Range: Actor
-  - From OSLO Cultuurparticipatie.
-- https://schema.org/provider
-  - Definition: The service provider, service operator, or service performer; the goods producer. 
-    Another party (a seller) may offer those services or goods on behalf of the provider. 
-    A provider may also serve as the seller. Supersedes carrier.
-  - Domain: Service
-  - Makes sense if we use schema:Service as class for "Aanbod".
-
-Decision: schema:provider
 
 #### maxAantalDeelnemers
 - Nothing in schema.org
 - Nothing via LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
 
@@ -198,13 +225,28 @@ Decision: new property.
 - https://schema.org/eventAttendanceMode
   - Definition: The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
   - ❌ Domain is only schema:Event and not schema:Service.
-- Nothing in LOV.
+- Nothing in LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
 
-#### subcategorie
+#### minAantalDeelnemers
+
 - Nothing in schema.org
 - Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### naam
+
+Decision: http://purl.org/dc/terms/title because it's used a lot in other OSLO APs.
+
+#### participatiegraad
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
 
@@ -229,7 +271,7 @@ Decision: create new class.
 
 Doesn't have own properties.
 
-## GroepsAanbod
+## Groepsaanbod
 
 ### Class
 No existing classes found.
@@ -238,12 +280,7 @@ Decision: create new class.
 
 ### Properties
 
-#### minAantalDeelnemers
-
-- Nothing in schema.org
-- Nothing via LOV
-
-Decision: new property.
+Doesn't have own properties.
 
 ## Activiteit
 
@@ -261,6 +298,8 @@ Considered classes:
   - Definition: An event happening at a certain time and location, such as a concert, lecture, or festival. 
     Ticketing information may be added via the offers property. 
     Repeated events may be structured as separate Event objects.
+  - ❌ Definitions refers to the term itself.
+  - ❌ "Event" is not the same as Activity. Activity is done with a specific purpose (which is what we need in our context).
   - Reusable properties:
     - schema:subEvent
     - schema:superEvent
@@ -277,21 +316,21 @@ Considered classes:
   - This class is a subclass of [E5 Event](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E5).
   - The definition reads like it aligns with the definition of prov:Activity.
 
-Decision: schema:Event aligns best with Activity in our case.
+Decision: http://www.cidoc-crm.org/cidoc-crm/E7_Activity aligns best with Activity in our case.
 
 ### Properties
 
 #### aanbod
 
-- Nothing in schema.org
-- Nothing in LOV
+This is the inverse of Aanbod.activiteit.
 
-Decision: new property
+Decision: use https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.superactiviteit
 
-#### aantal aanmeldingen
+#### aantalDeelnames
 
 - Nothing in schema.org
 - Nothing via LOV
+- Nothing in another OSLO AP/VOC
 
 Decision: new property.
 
@@ -302,12 +341,11 @@ Decision: new property.
 
 Decision: new property.
 
-#### annulatie reden
+#### beschrijving
+- dcterms:description
+  - This one is used for all descriptions in OSLO I've seen so far.
 
-- Nothing in schema.org
-- Nothing via LOV
-
-Decision: new property.
+Decision: use dcterms:description
 
 #### infrastructuur
 
@@ -330,6 +368,20 @@ Decision: new property.
     - Very generic. More generic than schema:location.
 
 Decision: prov:atLocation
+
+#### maxAantalDeelnemers
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### minAantalDeelnemers
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
 
 #### naam
 
@@ -355,18 +407,20 @@ Decision: adms:status because of the definition and because it's also used in ot
 - https://schema.org/subEvent
   - Definition: An Event that is part of this event. 
     For example, a conference event includes many presentations, each of which is a subEvent of the conference.
+  - ❌ We don't use schema:Event because of its definition. See above.
 - https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.subactiviteit
 
-Decision: schema:subEvent because the class is schema:Event.
+Decision: use https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.subactiviteit.
 
 #### superactiviteit
 
 - https://schema.org/superEvent
   - Definition: An event that this event is a part of. 
     For example, a collection of individual music performances might each have a music festival as their superEvent.
+  - ❌ We don't use schema:Event because of its definition. See above.
 - https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.superactiviteit
 
-Decision: schema:superEvent because the class is schema:Event.
+Decision: use https://data.vlaanderen.be/ns/cultuurparticipatie#Activiteit.superactiviteit.
 
 #### tijdschema
 
@@ -376,7 +430,7 @@ Decision: schema:superEvent because the class is schema:Event.
   
 Decision: schema:eventSchedule
 
-#### vervangen door
+#### vervangenDoor
 
 - http://purl.org/dc/terms/isReplacedBy
   - Definition: A related resource that supplants, displaces, or supersedes the described resource.
@@ -394,33 +448,14 @@ Decision: Definition fits and dcterms is stable.
 
 Decision: Definition fits and dcterms is stable.
 
-## Sessie (subclass of Activiteit)
+## Binnenruimte
 
-### Class
+We reuse it completely from OSLO Cultuurparticipatie.
 
-Considered classes:
+## DetentiehuisVestiging
 
-- https://schema.org/Event
-
-Decision: model Sessie as new subclass of [Activiteit](#Activiteit).
-
-### Properties
-
-No own properties.
-
-## Sessiereeks (subclass of Activiteit)
-
-### Class
-
-Considered classes:
-
-- https://schema.org/Event
-
-Decision: model Sessiereeks as new subclass of [Activiteit](#Activiteit).
-
-### Properties
-
-No own properties.
+This is distinct from a GevangenisVestiging.
+Therefore, we create a separate class.
 
 ## Doelgroep
 
@@ -452,66 +487,13 @@ Decision: schema:Audience
 - http://purl.org/dc/terms/hasPart
   - A related resource that is included either physically or logically in the described resource.
   - This property is an inverse property of dcterms:isPartOf.
+  - ❌ Too generic.
 
-Decision: dcterms:hasPart
+Decision: create own property.
 
-## DoelgroepKenmerk
+## Faciliteit
 
-### Class
-
-No existing classes found.
-
-Decision: create new class.
-
-### Properties
-
-#### deel van
-
-- http://purl.org/dc/terms/isPartOf
-  - Definition: A related resource in which the described resource is physically or logically included.
-  - This property is an inverse property of dcterms:hasPart.
-
-Decision: dcterms:isPartOf
-
-#### kenmerktype
-
-- http://purl.org/dc/terms/type
-  - This is used in other APs as well to denote a type.
-
-Decision: dcterms:type
-
-#### waarde
-
-- Nothing in schema.org
-- Nothing via LOV
-
-Decision: new property.
-
-## GebruikteVTE
-
-### Class
-
-No existing classes found.
-
-Decision: create new class.
-
-### Properties
-
-#### aantal
-
-- http://data.europa.eu/snb/model/elm/count
-  - ❌ Domain: Result Category
-- Nothing in schema.org
-- Nothing via LOV
-
-Decision: new property.
-
-#### vteType
-
-- http://purl.org/dc/terms/type
-  - This is used in other APs as well to denote a type.
-
-Decision: dcterms:type
+We reuse this completely from OSLO Cultuur en Jeugd.
 
 ## Financiering
 
@@ -520,10 +502,10 @@ Decision: dcterms:type
 Considered classes:
 
 - https://schema.org/Grant
-  - Definition: A grant, typically financial or otherwise quantifiable, of resources. 
-    Typically a funder sponsors some MonetaryAmount to an Organization or Person, 
-    sometimes not necessarily via a dedicated or long-lived Project, resulting in one or more outputs, or fundedItems. 
-    For financial sponsorship, indicate the funder of a MonetaryGrant. 
+  - Definition: A grant, typically financial or otherwise quantifiable, of resources.
+    Typically a funder sponsors some MonetaryAmount to an Organization or Person,
+    sometimes not necessarily via a dedicated or long-lived Project, resulting in one or more outputs, or fundedItems.
+    For financial sponsorship, indicate the funder of a MonetaryGrant.
     For non-financial support, indicate sponsor of Grants of resources (e.g. office space).
   - Reusable properties:
     - schema:funder
@@ -547,8 +529,8 @@ Considered classes:
   - ❌ Page not found.
 - https://rains-uoa.github.io/RAInS-Ontology/v2.0/index-en.html#Funding
   - Definition: A sao:InformationElement which records a specific piece of information detailing a funding source.
-  - The ontology has a different scope: The RAInS ontology is an ex-tension of the System Accountability Ontology (SAO) 
-    for the AI systems' domain by defining a set of concepts required to document the design and 
+  - The ontology has a different scope: The RAInS ontology is an ex-tension of the System Accountability Ontology (SAO)
+    for the AI systems' domain by defining a set of concepts required to document the design and
     implementation stage of such systems.
 - http://www.w3.org/ns/prov#Activity
   - Financing can be seen as an activity.
@@ -580,14 +562,20 @@ Decision: qudt:hasQuantity
 
 Decision: dcterms:type
 
-#### gefinancierd door
+#### financiert
+
+- https://schema.org/fundedItem
+
+Decision: schema:fundedItem
+
+#### gefinancierdDoor
 
 - https://schema.org/funder
   - Definition: A person or organization that supports (sponsors) something through some kind of financial contribution.
   - Domain: MonetaryGrant
   - Range: Organization, Person
 - https://purl.org/cerif/frapo/isFundedBy
-  - Definition: An object property linking something to the funding that funds it (i.e. that finances or pays for it), 
+  - Definition: An object property linking something to the funding that funds it (i.e. that finances or pays for it),
     or to the funding agency providing that funding.
   - No domain or range.
 
@@ -600,25 +588,19 @@ Decision: schema:funder because we use schema:MonetaryGrant.
 
 Decision: new property.
 
-#### uitbetaling start
-
-- http://www.w3.org/ns/prov#startedAtTime
-  - Definition: Start is when an activity is deemed to have been started by an entity, known as trigger.
-  
-Decision: prov:startedAtTime
-
-#### uitbetaling einde
+#### uitbetalingEinde
 
 - http://www.w3.org/ns/prov#endedAtTime
   - Definition: End is when an activity is deemed to have been ended by an entity, known as trigger
 
 Decision: prov:endedAtTime
 
-#### financiert
+#### uitbetalingStart
 
-- https://schema.org/fundedItem
+- http://www.w3.org/ns/prov#startedAtTime
+  - Definition: Start is when an activity is deemed to have been started by an entity, known as trigger.
 
-Decision: schema:fundedItem
+Decision: prov:startedAtTime
 
 ## Financieringsbron
 
@@ -640,10 +622,18 @@ See Aanbod > beleidsdomein
 
 Decision: new property.
 
+#### beleidsniveau
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
 #### financiert
 
 - http://purl.org/cerif/frapo/funds
-  - Definition: An object property that links a grant to something that it funds (i.e. that it finances or pays for), 
+  - Definition: An object property that links a grant to something that it funds (i.e. that it finances or pays for),
     or that links an agent providing funding to something that it funds.
   - No domain or range.
 - Nothing in schema.org
@@ -651,9 +641,338 @@ Decision: new property.
 
 Decision: frapo:funds
 
-#### niveau
+## GevangenisVestiging
 
+We needed a custom subclass of Vestiging for a prison.
+
+## Groepsaanbod
+
+This subclass only exists to show that an Aanbod is offered to a group of prisoners.
+
+## IndividueelAanbod
+
+This subclass only exists to show that an Aabod is offered to one prisoner.
+
+## Infrastructuur
+
+We reuse it from OSLO Jeugd en Cultuur.
+We add one property.
+
+### Properties
+
+#### effectievePopulatie
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+## Kenmerk
+
+### Class
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new class.
+
+### Properties
+
+#### type
+
+Decision: use dcterms:type. This is used in other OSLO APs as well.
+
+#### waarde
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new class.
+
+## Organisatie
+
+Decision: we reuse it from 
+[OSLO Organisatie Basis](https://data.vlaanderen.be/doc/applicatieprofiel/organisatie-basis/#Organisatie) 
+but only keep the link with Vestiging.
+
+## Organisator
+
+Decision: we reuse it from OSLO Cultuurparticipatie.
+
+## Populatie
+
+### Class
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new class.
+
+### Properties
+
+#### infrastructuur
+
+Decision: use prov:atLocation like we did for the other classes.
+
+#### kenmerk
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+## Realisatie
+
+We see a Realisatie also as a prov:Activity.
+
+### Class
+
+Decision: we reuse the class from OSLO Cultuurparticipatie.
+
+### Properties
+
+#### beïnvloedt
+
+Decision: http://www.w3.org/ns/prov#influenced because a Realisatie is also a prov:Activity.
+
+#### gebruikteVTE
+
+Decision: http://www.w3.org/ns/prov#qualifiedUsage because Realisatie is also a prov:Activity.
+
+#### geplandeVTE
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### gerealiseerdDoor
+
+Decision: http://www.w3.org/ns/prov#wasAssociatedWith because Realisatie is also a prov:Activity.
+
+#### locatie
+
+Decision: http://www.w3.org/ns/prov#atLocation because Realisatie is also a prov:Activity.
+
+#### type
+
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
+
+## Realisator
+
+We reuse it from OSLO Cultuurparticipatie.
+
+### Class
+
+Decision: https://data.vlaanderen.be/ns/cultuurparticipatie/#Realisator because we took it from OSLO Cultuurparticipatie.
+
+### Properties
+
+#### beleidsdomein
+
+See Aanbod > beleidsdomein
+
+Decision: new property.
+
+#### gefinancieerdDoor
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### naam
+
+Decision: reuse https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.naam.
+
+#### realisatie
+
+Decision: http://www.w3.org/ns/prov#wasAssociateFor because Realisatie is a prov:Activity.
+
+#### realiseert
+
+Decision reuse https://data.vlaanderen.be/ns/cultuurparticipatie#Realisator.realiseert.
+
+## Sessie (subclass of Activiteit)
+
+### Class
+
+Considered classes:
+
+- https://schema.org/Event
+
+Decision: model Sessie as new subclass of [Activiteit](#Activiteit).
+
+### Properties
+
+No own properties.
+
+## Sessiereeks (subclass of Activiteit)
+
+### Class
+
+Considered classes:
+
+- https://schema.org/Event
+
+Decision: model Sessiereeks as new subclass of [Activiteit](#Activiteit).
+
+### Properties
+
+No own properties.
+
+## Uitvoerder
+
+Decision: we reuse it from OSLO Cultuurparticipatie.
+
+## Vestiging
+
+Decision: we reuse it from 
+[OSLO Organisatie Basis](https://data.vlaanderen.be/doc/applicatieprofiel/organisatie-basis/#Vestiging).
+
+## VTEGebruik
+
+### Class
+
+No existing classes found.
+
+Decision: create new class and make it subclass of prov:Usage.
+
+### Properties
+
+#### aantalPersonen
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### aantalVTEs
+
+- http://data.europa.eu/snb/model/elm/count
+  - ❌ Domain: Result Category
 - Nothing in schema.org
 - Nothing via LOV
 
 Decision: new property.
+
+#### realisatie
+
+Decision: use http://www.w3.org/ns/prov#qualifiedUsingActivity because VTEGebruik is a subclass of prov:Activity.
+
+#### type
+
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
+
+## Activiteitsstatus
+
+We want to combine the status of an activity and the reason of that status.
+We do this in this complex datatype.
+OSLO Cultuurparticipatie only considered the status but not the reason.
+
+### Class
+
+Decision: create new class.
+
+### Properties
+
+#### reden
+
+- Nothing in schema.org
+- Nothing via LOV
+- Nothing in another OSLO AP/VOC
+
+Decision: new property.
+
+#### type
+
+- http://purl.org/dc/terms/type
+  - This is used in other APs as well to denote a type.
+
+Decision: dcterms:type
+
+## EnkeleWaarde
+
+### Class
+
+- Nothing in schema.org
+- Nothing via LOV
+- We checked https://data.vlaanderen.be/doc/applicatieprofiel/bodem-en-ondergrond/ because there was something relevant
+  for Fractiewaarde (see below).
+  We didn't find anything though.
+
+Decision: new class.
+
+### Properties
+
+#### kenmerkwaarde
+
+- https://qudt.org/schema/qudt/quantityValue
+  - ❌ The range is too restrictive. We want to be able to put any Resource there.
+
+Decision: new property.
+
+#### waarde
+
+- https://qudt.org/schema/qudt/quantityValue
+  - ❌ The range is too restrictive. We want to be able to put any Resource there.
+
+Decision: new property.
+
+## Fractiewaarde
+
+### Class
+This is based on https://data.vlaanderen.be/ns/bodem-en-ondergrond/#Fractiemetingwaarde.
+We didn't reuse this though because this is for a measurement while in our case they don't measure this value.
+It's something they know exactly.
+
+Decision: create new class with a broader purpose/definition.
+
+### Properties
+
+#### bovengrens
+
+- https://qudt.org/schema/qudt/upperBound
+  - ❌ The range is xsd:anySimpleType.
+
+Decision: new property.
+
+#### ondergrens
+
+- https://qudt.org/schema/qudt/lowerBound
+  - There is no range set.
+  - ❌ It doesn't make much sense to use this property but not use qudt:upperBound for bovengrens. 
+- http://wikiba.se/ontology#quantityUpperBound
+  - ❌ The range is limited to a decimal.
+
+Decision: new property.
+
+#### waarde
+
+- https://qudt.org/schema/qudt/quantityValue
+  - ❌ The range is too restrictive. We want to be able to put any Resource there.
+
+Decision: new property.
+
+## TaalString
+
+Decision: use http://www.w3.org/1999/02/22-rdf-syntax-ns#langString.
+
+## Tijdschema
+
+Decision: use schema:Schedule because we follow 
+[OSLO Cultuurparticipatie](https://data.vlaanderen.be/doc/applicatieprofiel/cultuurparticipatie/#Schema).

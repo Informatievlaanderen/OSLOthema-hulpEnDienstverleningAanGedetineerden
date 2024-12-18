@@ -1,6 +1,6 @@
 [
   {
-    "name": "hdg-ap",
+    "name": "hulp-dienstverlening-gedetineerden-ap",
     "type": "ap",
     "eap": "OSLO-Hulp-en-Dienstverlening-aan-Gedetineerden.eap",
     "diagram": "OSLO-HDG-AP",
@@ -13,6 +13,6 @@
     "contributors-column": "MijnKolom",
     "site": "site-skeleton/mijn-applicatieprofiel-ap",
     "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/issues",
-    "standaardregisterurl": "https://data.vlaanderen.be/standaarden/applicatieprofiel-hulp-dienstverlening-gedetineerden/index.html"
+    "standaardregisterurl": "https://data.vlaanderen.be/standaarden/applicatieprofiel-hulp-en-dienstverlening-aan-gedetineerden"
   }
 ]

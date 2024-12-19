@@ -14,13 +14,13 @@
   "specificationDocuments": [
     {
       "name": "Applicatieprofiel Hulp- en Dienstverlening aan Gedetineerden",
-      "resourceReference": "https://data.test-vlaanderen.be/doc/applicatieprofiel/hulp-dienstverlening-gedetineerden/ontwerpstandaard/2024-11-28/"
+      "resourceReference": "https://data.vlaanderen.be/doc/applicatieprofiel/hulp-dienstverlening-gedetineerden"
     }
   ],
   "documentation": [
     {
       "name": "Vocabularium Hulp- en Dienstverlening aan Gedetineerden",
-      "resourceReference": "https://data.test-vlaanderen.be/ns/hulp-dienstverlening-gedetineerden/"
+      "resourceReference": "https://data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden/"
     }
   ],
   "charter": {

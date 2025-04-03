@@ -8,7 +8,7 @@
 @prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:beleidsdomein :Onderwijs;
+  hdg:Aanbod.beleidsdomein :Onderwijs;
   hdg:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";
   schema:provider :CvoAntwerpen;
@@ -29,12 +29,12 @@
 :Realisatie a cp:Realisatie;
    prov:qualifiedUsage :FatikkenVTE, :VrijwilligersVTE.
 
-:FatikkenVTE a hdg:VTEGebruik;
-  hdg:VTEGebruik.aantalVTE "0.5";
+:FatikkenVTE a hdg:VoltijdsequivalentGebruik;
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten "0.5";
   dcterms:type :Fatikken.
 
-:VrijwilligersVTE a hdg:VTEGebruik;
-  hdg:VTEGebruik.aantalVTE "1";
+:VrijwilligersVTE a hdg:VoltijdsequivalentGebruik;
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten "1";
   dcterms:type :Vrijwilligers.
 
 :Onderwijs a skos:Concept.

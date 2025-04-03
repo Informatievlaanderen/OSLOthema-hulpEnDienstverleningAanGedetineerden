@@ -7,7 +7,7 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
 
 :Voetbal a hdg:Groepsaanbod;
-  hdg:beleidsdomein :SportEnCultuur;
+  hdg:Aanbod.beleidsdomein :SportEnCultuur;
   hdg:subcategorie :Balsporten;
   schema:category :Sport;
   dcterms:title "Voetbal";

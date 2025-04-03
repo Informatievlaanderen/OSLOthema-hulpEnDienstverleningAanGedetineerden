@@ -16,7 +16,7 @@
   skos:prefLabel "CVO Antwerpen"@nl.
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:beleidsdomein beleidsdomein:Onderwijs;
+  hdg:Aanbod.beleidsdomein beleidsdomein:Onderwijs;
   hdg:categorie categorie:Taal, categorie:Nederlands;
   dcterms:title "Taalles Nederlands niveau B1"@nl;
   cidoc-crm:P14_carried_out_by :CvoAntwerpen;
@@ -24,10 +24,13 @@
   schema:audience :50plus.
 
 :50plus a schema:Audience;
-  hdg:Doelgroep.kenmerk :Kenmerk50plus.
+  hdg:Doelgroep.doelgroepkenmerk :Kenmerk50plus.
 
-:Kenmerk50plus a hdg:Kenmerk;
-  hdg:Kenmerk.waarde "50+"^^xsd:string;
+:Kenmerk50plus a hdg:Doelgroepkenmerk;
+  hdg:Doelgroepkenmerk.waarde [
+    a hdg:Fractiewaarde;
+    hdg:kenmerkwaardeOndergrensInclusief "50"^^xsd:integer
+  ];
   dcterms:type kenmerk:Leeftijd.
 
 :GevangenisAntwerpen a hdg:GevangenisVestiging;

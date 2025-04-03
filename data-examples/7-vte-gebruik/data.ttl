@@ -16,13 +16,13 @@
 :Tekenen a hdg:Groepsaanbod;
   dcterms:title "Tekenen".
 
-:VrijwilligersTekenen a hdg:VTEGebruik;
+:VrijwilligersTekenen a hdg:VoltijdsequivalentGebruik;
   dcterms:type :Vrijwilligers;
-  hdg:VTEGebruik.aantal 1.
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten 1.
 
-:FatikkenTekenen a hdg:VTEGebruik;
+:FatikkenTekenen a hdg:VoltijdsequivalentGebruik;
   dcterms:type :Fatikken;
-  hdg:VTEGebruik.aantal 0.5.
+  hdg:VVoltijdsequivalentGebruik.aantalVoltijdsequivalenten 0.5.
 
 :Fitness a hdg:Groepsaanbod;
   dcterms:title "Fitness".
@@ -31,17 +31,17 @@
   prov:influenced :Fitness;
   prov:qualifiedUsage :FatikkenFitness.
 
-:FatikkenFitness a hdg:VTEGebruik;
+:FatikkenFitness a hdg:VoltijdsequivalentGebruik;
   dcterms:type :Fatikken;
-  hdg:VTEGebruik.aantal 1.
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten 1.
 
 :RealisatieAntwerpen a cp:Realisatie;
   prov:atLocation :GevangenisAntwerpen;
   prov:qualifiedUsage :OrganiserendpersoneelAntwerpen.
 
-:OrganiserendpersoneelAntwerpen a hdg:VTEGebruik;
+:OrganiserendpersoneelAntwerpen a hdg:VoltijdsequivalentGebruik;
 	dcterms:type :OrganiserendPersoneel;
-	hdg:VTEGebruik.aantal 3.
+	hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten 3.
 
 :Fatikken a skos:Concept.
 :OrganiserendPersoneel a skos:Concept.

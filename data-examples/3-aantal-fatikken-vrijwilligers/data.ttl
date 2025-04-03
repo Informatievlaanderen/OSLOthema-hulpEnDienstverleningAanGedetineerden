@@ -30,11 +30,11 @@
    prov:qualifiedUsage :FatikkenVTE, :VrijwilligersVTE.
 
 :FatikkenVTE a hdg:VoltijdsequivalentGebruik;
-  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten "0.5";
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten 0.5;
   dcterms:type :Fatikken.
 
 :VrijwilligersVTE a hdg:VoltijdsequivalentGebruik;
-  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten "1";
+  hdg:VoltijdsequivalentGebruik.aantalVoltijdsequivalenten 1;
   dcterms:type :Vrijwilligers.
 
 :Onderwijs a skos:Concept.

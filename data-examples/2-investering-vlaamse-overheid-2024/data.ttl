@@ -18,11 +18,11 @@
 	skos:prefLabel "Arktos"@nl.
 
 :VlaamseOverheidSport a dcterms:Agent;
-  hdg:beleidsdomein beleidsdomein:Sport;
+  hdg:Financieringsbron.beleidsdomein beleidsdomein:Sport;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :VlaamseOverheidWelzijn a dcterms:Agent;
-  hdg:beleidsdomein beleidsdomein:Welzijn;
+  hdg:Financieringsbron.beleidsdomein beleidsdomein:Welzijn;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :FinancieringDeRodeAntraciet a schema:MonetaryGrant;

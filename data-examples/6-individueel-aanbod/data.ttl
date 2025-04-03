@@ -15,9 +15,8 @@
 
 :BehandelingVoorDepressieveGevoelens a hdg:IndividueelAanbod;
   dcterms:title "Behandeling voor depressieve gevoelens";
-  hdg:beleidsdomein :WelzijnVolksgezondheidGezin;
-  hdg:instantiemethode :AdHoc;
+  hdg:Aabod.beleidsdomein :WelzijnVolksgezondheidGezin;
   prov:atLocation :GevangenisAntwerpen;
-  hdg:maxAantalDeelnemers 5.
+  hdg:Activiteit.minAbsoluutAantalDeelnemendeGedetineerden 5.
 
 :WelzijnVolksgezondheidGezin a skos:Concept.

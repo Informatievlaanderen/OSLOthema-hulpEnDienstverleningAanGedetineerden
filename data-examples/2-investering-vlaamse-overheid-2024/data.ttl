@@ -33,7 +33,7 @@
     qudt:value "1200000"
   ];
   dcterms:type financiering:Subsidie;
-  hdg:karakter karakter:Structureel;
+  hdg:Financiering.financieringskarakter karakter:Structureel;
   prov:startedAtTime "2024-01-25";
   prov:endedAtTime "2024-01-25";
   schema:Funder :VlaamseOverheidSport;
@@ -47,7 +47,7 @@
     qudt:value "450000"
   ];
   dcterms:type :Subsidie;
-  hdg:karakter karakter:Eenmalig;
+  hdg:Financiering.financieringskarakter karakter:Eenmalig;
   prov:startedAtTime "2024-02-15";
   prov:endedAtTime "2024-02-15";
   schema:funder :VlaamseOverheidWelzijn;

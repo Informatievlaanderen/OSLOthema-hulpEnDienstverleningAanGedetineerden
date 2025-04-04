@@ -10,39 +10,39 @@
   <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen".
 
 :Populatie a hdg:Populatie;
-  hdg:Populatie.kenmerk :Geslacht, :Leeftijd.
+  hdg:populatiekenmerk :Geslacht, :Leeftijd.
 
 # Geslacht
-:Geslacht a hdg:Kenmerk;
-  hdg:Kenmerk.waarde :Man, :Vrouw.
+:Geslacht a hdg:Populatiekenmerk;
+  hdg:Populatiekenmerk.populatieEnkeleWaarde :ManWaarde, :VrouwWaarde.
 
-:Man a hdg:EnkeleWaarde;
-  hdg:kenmerkwaarde "Man";
-  hdg:Enkelewaarde.waarde 30.
+:ManWaarde a hdg:PopulatieEnkeleWaarde;
+  hdg:PopulatieEnkeleWaarde.kenmerkwaarde "Man";
+  hdg:PopulatieWaarde.waarde 30.
 
-:Vrouw a hdg:EnkeleWaarde;
-  hdg:kenmerkwaarde "Vrouw";
-  hdg:Enkelewaarde.waarde 10.
+:VrouwWaarde a hdg:PopulatieEnkeleWaarde;
+  hdg:PopulatieEnkeleWaarde.kenmerkwaarde "Vrouw";
+  hdg:PopulatieWaarde.waarde 10.
 
 # Leeftijd
-:Leeftijd a hdg:Kenmerk;
-  hdg:Kenmerk.waarde :18-25, :26-40, :41-50, :50plus.
+:Leeftijd a hdg:Populatiekenmerk;
+  hdg:Populatiekenmerk.populatieFractiewaarde :18-25, :26-40, :41-50, :50plus.
 
-:18-25 a hdg:Fractiewaarde;
-  hdg:ondergrens 18;
-  hdg:bovengrens 25;
-  hdg:Fractiewaarde.waarde 10.
+:18-25 a hdg:PopulatieFractiewaarde;
+  hdg:Fractiewaarde.kenmerkwaardeOndergrensInclusief 18;
+  hdg:Fractiewaarde.kenmerkwaardeBovengrensInclusief 25;
+  hdg:PopulatieWaarde.waarde 10.
 
-:26-40 a hdg:Fractiewaarde;
-  hdg:ondergrens 26;
-  hdg:bovengrens 40;
-  hdg:Fractiewaarde.waarde 15.
+:26-40 a hdg:PopulatieFractiewaarde;
+  hdg:Fractiewaarde.kenmerkwaardeOndergrensInclusief 26;
+  hdg:Fractiewaarde.kenmerkwaardeBovengrensInclusief 40;
+  hdg:PopulatieWaarde.waarde 15.
 
-:41-50 a hdg:Fractiewaarde;
-  hdg:ondergrens 41;
-  hdg:bovengrens 50;
-  hdg:Fractiewaarde.waarde 5.
+:41-50 a hdg:PopulatieFractiewaarde;
+  hdg:Fractiewaarde.kenmerkwaardeOndergrensInclusief 41;
+  hdg:Fractiewaarde.kenmerkwaardeBovengrensInclusief 50;
+  hdg:PopulatieWaarde.waarde 5.
 
-:50plus a hdg:Fractiewaarde;
-  hdg:ondergrens 51;
-  hdg:Fractiewaarde.waarde 10.
+:50plus a hdg:PopulatieFractiewaarde;
+  hdg:Fractiewaarde.kenmerkwaardeOndergrensInclusief 51;
+  hdg:PopulatieWaarde.waarde 10.

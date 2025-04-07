@@ -8,7 +8,7 @@
 @prefix cp: <https://data.vlaanderen.be/ns/cultuurparticipatie#> .
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:Aanbod.beleidsdomein :Onderwijs;
+  hdg:Aanbod.beleidsveld :Onderwijs;
   hdg:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";
   schema:provider :CvoAntwerpen;

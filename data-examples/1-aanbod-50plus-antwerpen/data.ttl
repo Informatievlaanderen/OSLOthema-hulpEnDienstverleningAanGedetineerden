@@ -8,7 +8,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix categorie: <https://example.com/CategorieType/> .
 @prefix cidoc-crm: <http://cidoc-crm.org/cidoc-crm/> .
-@prefix beleidsdomein: <https://example.com/BeleidsdomeinType/> .
+@prefix beleidsveld: <https://example.com/BeleidsveldType/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix kenmerk: <https://example.com/KenmerkType/> .
 
@@ -16,7 +16,7 @@
   skos:prefLabel "CVO Antwerpen"@nl.
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:Aanbod.beleidsdomein beleidsdomein:Onderwijs;
+  hdg:Aanbod.beleidsveld beleidsveld:Onderwijs;
   hdg:categorie categorie:Taal, categorie:Nederlands;
   dcterms:title "Taalles Nederlands niveau B1"@nl;
   cidoc-crm:P14_carried_out_by :CvoAntwerpen;
@@ -36,7 +36,7 @@
 :GevangenisAntwerpen a hdg:GevangenisVestiging;
   <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen"@nl.
 
-beleidsdomein:Onderwijs a skos:Concept.
+beleidsveld:Onderwijs a skos:Concept.
 categorie:Nederlands a skos:Concept.
 categorie:Taal a skos:Concept.
 kenmerk:Leeftijd a skos:Concept.

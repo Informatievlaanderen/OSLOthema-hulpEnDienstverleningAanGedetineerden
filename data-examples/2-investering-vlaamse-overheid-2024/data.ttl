@@ -6,7 +6,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix org: <http://www.w3.org/ns/org#> .
-@prefix beleidsdomein: <https://example.com/BeleidsomeinType/> .
+@prefix beleidsveld: <https://example.com/BeleidsveldType/> .
 @prefix beleidsniveau: <https://example.com/BeleidsniveauType/> .
 @prefix karakter: <https://example.com/KarakterType/> .
 @prefix financiering: <https://example.com/FinancieringType/> .
@@ -18,11 +18,11 @@
 	skos:prefLabel "Arktos"@nl.
 
 :VlaamseOverheidSport a dcterms:Agent;
-  hdg:Financieringsbron.beleidsdomein beleidsdomein:Sport;
+  hdg:Financieringsbron.beleidsveld beleidsveld:Sport;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :VlaamseOverheidWelzijn a dcterms:Agent;
-  hdg:Financieringsbron.beleidsdomein beleidsdomein:Welzijn;
+  hdg:Financieringsbron.beleidsveld beleidsveld:Welzijn;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :FinancieringDeRodeAntraciet a schema:MonetaryGrant;
@@ -53,8 +53,8 @@
   schema:funder :VlaamseOverheidWelzijn;
   schema:fundedItem :Arktos.
 
-beleidsdomein:Sport a skos:Concept.
-beleidsdomein:Welzijn a skos:Concept.
+beleidsveld:Sport a skos:Concept.
+beleidsveld:Welzijn a skos:Concept.
 beleidsniveau:Vlaams a skos:Concept.
 financiering:Subsidie a skos:Concept.
 karakter:Structureel a skos:Concept.

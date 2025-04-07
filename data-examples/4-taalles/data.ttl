@@ -6,7 +6,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:Aanbod.beleidsdomein :Onderwijs;
+  hdg:Aanbod.beleidsveld :Onderwijs;
   hdg:subcategorie :Nederlands;
   schema:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";

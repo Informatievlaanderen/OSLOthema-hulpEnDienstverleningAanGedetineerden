@@ -17,6 +17,13 @@
   dcterms:title "Behandeling voor depressieve gevoelens";
   hdg:Aabod.beleidsveld :WelzijnVolksgezondheidGezin;
   prov:atLocation :GevangenisAntwerpen;
+  hdg:activiteit :Behandelingreeks1, :Behandelingreeks2;
   hdg:Activiteit.minAantalDeelnemers 5.
+
+:Behandelingreeks1 a hdg:Sessiereeks;
+  hdg:Activiteit.minAantalDeelnemers 1.
+
+:Behandelingreeks2 a hdg:Sessiereeks;
+  hdg:Activiteit.minAantalDeelnemers 1.
 
 :WelzijnVolksgezondheidGezin a skos:Concept.

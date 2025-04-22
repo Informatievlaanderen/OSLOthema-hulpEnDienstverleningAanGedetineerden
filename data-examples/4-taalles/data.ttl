@@ -1,12 +1,12 @@
 @prefix : <http://example.com#> .
-@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix hdg: <https://data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:beleidsdomein :Onderwijs;
+  hdg:Aanbod.beleidsveld :Onderwijs;
   hdg:subcategorie :Nederlands;
   schema:category :Taal;
   dcterms:title "Taalles Nederlands niveau B1";

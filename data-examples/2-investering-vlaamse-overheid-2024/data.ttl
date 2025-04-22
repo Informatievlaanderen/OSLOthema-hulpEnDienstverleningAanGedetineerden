@@ -1,12 +1,12 @@
 @prefix : <http://example.com#> .
-@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix hdg: <https://data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix org: <http://www.w3.org/ns/org#> .
-@prefix beleidsdomein: <https://example.com/BeleidsomeinType/> .
+@prefix beleidsveld: <https://example.com/BeleidsveldType/> .
 @prefix beleidsniveau: <https://example.com/BeleidsniveauType/> .
 @prefix karakter: <https://example.com/KarakterType/> .
 @prefix financiering: <https://example.com/FinancieringType/> .
@@ -18,11 +18,11 @@
 	skos:prefLabel "Arktos"@nl.
 
 :VlaamseOverheidSport a dcterms:Agent;
-  hdg:beleidsdomein beleidsdomein:Sport;
+  hdg:Financieringsbron.beleidsveld beleidsveld:Sport;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :VlaamseOverheidWelzijn a dcterms:Agent;
-  hdg:beleidsdomein beleidsdomein:Welzijn;
+  hdg:Financieringsbron.beleidsveld beleidsveld:Welzijn;
   hdg:beleisniveau beleidsniveau:Vlaams.
 
 :FinancieringDeRodeAntraciet a schema:MonetaryGrant;
@@ -33,7 +33,7 @@
     qudt:value "1200000"
   ];
   dcterms:type financiering:Subsidie;
-  hdg:karakter karakter:Structureel;
+  hdg:Financiering.financieringskarakter karakter:Structureel;
   prov:startedAtTime "2024-01-25";
   prov:endedAtTime "2024-01-25";
   schema:Funder :VlaamseOverheidSport;
@@ -47,14 +47,14 @@
     qudt:value "450000"
   ];
   dcterms:type :Subsidie;
-  hdg:karakter karakter:Eenmalig;
+  hdg:Financiering.financieringskarakter karakter:Eenmalig;
   prov:startedAtTime "2024-02-15";
   prov:endedAtTime "2024-02-15";
   schema:funder :VlaamseOverheidWelzijn;
   schema:fundedItem :Arktos.
 
-beleidsdomein:Sport a skos:Concept.
-beleidsdomein:Welzijn a skos:Concept.
+beleidsveld:Sport a skos:Concept.
+beleidsveld:Welzijn a skos:Concept.
 beleidsniveau:Vlaams a skos:Concept.
 financiering:Subsidie a skos:Concept.
 karakter:Structureel a skos:Concept.

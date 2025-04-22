@@ -1,5 +1,5 @@
 @prefix : <http://example.com#> .
-@prefix hdg: <https://test.data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
+@prefix hdg: <https://data.vlaanderen.be/ns/hulp-dienstverlening-gedetineerden#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <https://schema.org/> .
@@ -8,7 +8,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix categorie: <https://example.com/CategorieType/> .
 @prefix cidoc-crm: <http://cidoc-crm.org/cidoc-crm/> .
-@prefix beleidsdomein: <https://example.com/BeleidsdomeinType/> .
+@prefix beleidsveld: <https://example.com/BeleidsveldType/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix kenmerk: <https://example.com/KenmerkType/> .
 
@@ -16,7 +16,7 @@
   skos:prefLabel "CVO Antwerpen"@nl.
 
 :TaallesNederlandsB1 a hdg:Groepsaanbod;
-  hdg:beleidsdomein beleidsdomein:Onderwijs;
+  hdg:Aanbod.beleidsveld beleidsveld:Onderwijs;
   hdg:categorie categorie:Taal, categorie:Nederlands;
   dcterms:title "Taalles Nederlands niveau B1"@nl;
   cidoc-crm:P14_carried_out_by :CvoAntwerpen;
@@ -24,16 +24,19 @@
   schema:audience :50plus.
 
 :50plus a schema:Audience;
-  hdg:Doelgroep.kenmerk :Kenmerk50plus.
+  hdg:Doelgroep.doelgroepkenmerk :Kenmerk50plus.
 
-:Kenmerk50plus a hdg:Kenmerk;
-  hdg:Kenmerk.waarde "50+"^^xsd:string;
+:Kenmerk50plus a hdg:Doelgroepkenmerk;
+  hdg:Doelgroepkenmerk.waarde [
+    a hdg:Fractiewaarde;
+    hdg:kenmerkwaardeOndergrensInclusief "50"^^xsd:integer
+  ];
   dcterms:type kenmerk:Leeftijd.
 
 :GevangenisAntwerpen a hdg:GevangenisVestiging;
   <https://data.vlaanderen.be/ns/cultuur-en-jeugd/infrastructuur#Infrastructuur.naam> "Gevangenis Antwerpen"@nl.
 
-beleidsdomein:Onderwijs a skos:Concept.
+beleidsveld:Onderwijs a skos:Concept.
 categorie:Nederlands a skos:Concept.
 categorie:Taal a skos:Concept.
 kenmerk:Leeftijd a skos:Concept.

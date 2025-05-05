@@ -34,30 +34,53 @@ welke financiering deze organisaties krijgen.
 Wat volgt zijn een aantal vragen die beantwoord kunnen worden door
 het applicatieprofiel toe te passen op de beschikbare data:
 
-<ul>
-  <li>
-    Welk aanbod is er voor 50-plussers in een bepaalde gevangenis?
-  </li>
-  <li>
-  	Welke investeringen heeft de Vlaamse Overheid reeds gedaan in hulp- en diestverlening aan gedetineerden in 2024?
-  </li>
-  <li>
-  	Hoeveel vrijwilligers en fatikken hebben meegewerkt aan een bepaalde activiteit?
-  </li>
-  <li>
-  	Hoeveel keer werd er gebruikt gemaakt van psychologische zorg door gedetineerden in een bepaalde gevangenis?
-  </li>
-  <li>
-  	Hoeveel voltijdsequivalenten werden er ingezet bij het verwezelijken bij hulp- en diestverlening aan gedetineerden in een bepaalde gevangenis?
-  </li>
-  <li>
-  	Wat zijn de kenmerken, zoals nationaliteit en leeftijd, van de gedetineerden in een bepaalde gevangenis?
-  </li>
-  <li>
-  	Hoeveel (sessies van) activiteiten werden geannuleerd of verplaatst omwille van stakingen?
-  </li>
-</ul>
+	<ul>
+		<li>
+			Welk aanbod is er voor 50-plussers in een bepaalde gevangenis?
+		</li>
+		<li>
+			Welke investeringen heeft de Vlaamse Overheid reeds gedaan in hulp- en diestverlening aan gedetineerden in 2024?
+		</li>
+		<li>
+			Hoeveel vrijwilligers en fatikken hebben meegewerkt aan een bepaalde activiteit?
+		</li>
+		<li>
+			Hoeveel keer werd er gebruikt gemaakt van psychologische zorg door gedetineerden in een bepaalde gevangenis?
+		</li>
+		<li>
+			Hoeveel voltijdsequivalenten werden er ingezet bij het verwezelijken bij hulp- en diestverlening aan gedetineerden in een bepaalde gevangenis?
+		</li>
+		<li>
+			Wat zijn de kenmerken, zoals nationaliteit en leeftijd, van de gedetineerden in een bepaalde gevangenis?
+		</li>
+		<li>
+			Hoeveel (sessies van) activiteiten werden geannuleerd of verplaatst omwille van stakingen?
+		</li>
+	</ul>
+</p>
 
+<p>
+Het datamodel bestaat uit onder andere de volgende klassen.
+De klasse Aanbod wordt gebruikt om aan te geven wat er aangeboden wordt in een gevangenis of detentiehuis.
+Dit kan zowel over individueel als groepsaanbod gaan.
+Per Aanbod kan ook bijgehouden worden voor welke doelgroep deze bedoeld is.
+Deze klasse is verbonden met de klasse Activiteit, welke gebruikt wordt voor instanties van het Aanbod.
+Bijvoorbeeld, als een gevangenis een Aanbod Voetbal heeft dan is een training een Activiteit bij dit Aanbod.
+Een Aanbod/Activiteit vindt plaats in een specifieke gevangenis of detentiehuis
+welke subklassen zijn van Vestiging en Infrastructuur.
+Deze laatste is verbonden met zowel Aanbod als Activiteit.
+Voor elke Vestiging kan er ook bijgehouden worden wat de populatie is en de bijhorende kenmerken.
+</p>
+
+<p>
+Een Aanbod wordt tot stand gebracht door Uitvoerders en Organisatoren.
+Deze zijn rechtstreeks verbonden met de klasse Aanbod via de superklasse Realisator.
+Er kan ook een extra klasse Realisatie gebruikt worden indien het nodig is om bij te houden
+hoeveel voltijdsequivalenten er gespendeerd worden door de Uitvoerders en Organisatoren.
+Voor deze laatsten kan bijgehouden worden hoe deze gefinancierd worden via de klassen Financiering en Financieringsbron.
+</p>
+
+<p>
 Je kan een aantal datavoorbeelden
 <a href="https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/tree/main/data-examples">hier</a>
 terugvinden.

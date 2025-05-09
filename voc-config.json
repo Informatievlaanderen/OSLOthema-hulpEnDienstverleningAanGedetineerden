@@ -5,8 +5,8 @@
   "status": "kandidaat-standaard",
   "responsibleOrganisation": [
     {
-      "name": "Agentschap Digitaal Vlaanderen",
-      "resourceReference": "https://data.vlaanderen.be/id/organisatie/OVO002949"
+      "name": "Agentschap Justitie en Handhaving",
+      "resourceReference": "https://data.vlaanderen.be/id/organisatie/OVO049152"
     }
   ],
   "publicationDate": "2024-11-29",
@@ -25,56 +25,56 @@
   ],
   "charter": {
     "name": "Charter",
-    "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/charter/Werkgroep%20charter%20OSLO_AJH%20HDG.docx"
+    "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/charter/Werkgroep%20charter%20OSLO_AJH%20HDG.docx"
   },
   "reports": [
     {
       "name": "Verslag business werkgroep -  30 mei 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20business%20werkgroep%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20business%20werkgroep%20-%20HDG.pdf"
     },
     {
       "name": "Verslag thematische werkgroep 1 -  25 juni 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%201%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%201%20-%20HDG.pdf"
     },
     {
       "name": "Verslag thematische werkgroep 2 -  16 september 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%202%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%202%20-%20HDG.pdf"
     },
     {
       "name": "Verslag thematische werkgroep 3 -  22 oktober 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%203%20-%20HDG.pdf"
+      "resourceReference": https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%203%20-%20HDG.pdf"
     },
     {
       "name": "Verslag thematische werkgroep 4 -  25 november 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%204%20-%2025%20november%202024.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/reports/Verslag%20thematische%20werkgroep%204%20-%2025%20november%202024.pdf"
     }
   ],
   "presentations": [
     {
       "name": "Presentatie business werkgroep - 30 mei 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20business%20werkgroep%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20business%20werkgroep%20-%20HDG.pdf"
     },
     {
       "name": "Presentatie thematische werkgroep 1 - 25 juni 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%201%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%201%20-%20HDG.pdf"
     },
     {
       "name": "Presentatie thematische werkgroep 2 - 16 september 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%202%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%202%20-%20HDG.pdf"
     },
     {
       "name": "Presentatie thematische werkgroep 3 - 22 oktober 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%203%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%203%20-%20HDG.pdf"
     },
     {
       "name": "Presentatie thematische werkgroep 4 - 25 november 2024",
-      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%204%20-%20HDG.pdf"
+      "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-hulpEnDienstverleningAanGedetineerden/blob/standaardenregister/presentations/Presentatie%20thematische%20werkgroep%204%20-%20HDG.pdf"
     }
   ],
-  "dateOfRegistration": "",
-  "dateOfAcknowledgementByWorkingGroup": "",
-  "dateOfAcknowledgementBySteeringCommittee": "",
-  "datePublicReviewStart": "",
-  "datePublicReviewEnd": "",
+  "dateOfRegistration": "2024-11-29",
+  "dateOfAcknowledgementByWorkingGroup": "2025-05-22",
+  "dateOfAcknowledgementBySteeringCommittee": "2025-06-20",
+  "datePublicReviewStart": "2025-01-09",
+  "datePublicReviewEnd": "2025-04-09",
   "endOfPublicationDate": ""
 }

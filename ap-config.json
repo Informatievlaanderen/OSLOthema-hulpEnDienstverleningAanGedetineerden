@@ -2,7 +2,7 @@
   "title": "Applicatieprofiel Hulp- en Dienstverlening aan Gedetineerden",
   "category": "Applicatieprofiel",
   "usage": "Aanbevolen (vrijwillig)",
-  "status": "kandidaat-standaard",
+  "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
   "responsibleOrganisation": [
     {
       "name": "Agentschap Justitie en Handhaving",

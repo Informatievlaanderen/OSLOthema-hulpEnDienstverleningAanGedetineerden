@@ -1,6 +1,6 @@
 [
   {
-    "name": "hulp-dienstverlening-gedetineerden-ap",
+    "name": "hulp-dienstverlening-gedetineerden",
     "type": "ap",
     "eap": "OSLO-Hulp-en-Dienstverlening-aan-Gedetineerden.eap",
     "diagram": "OSLO-HDG-AP",
